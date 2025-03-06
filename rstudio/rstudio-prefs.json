@@ -1,0 +1,8 @@
+{
+    "initial_working_directory": "~",
+    "font_size_points": 12,
+    "editor_theme": "Tomorrow Night",
+    "posix_terminal_shell": "bash",
+    "jobs_tab_visibility": "shown",
+    "scroll_past_end_of_document": true
+}
