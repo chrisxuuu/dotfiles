@@ -192,13 +192,10 @@ function __icon_map() {
    "Firefox")
         icon_result=":firefox:"
         ;;
-   "Firefox Developer Edition" | "Firefox Nightly")
+   "Zen" | "Firefox Developer Edition" | "Firefox Nightly")
         icon_result=":firefox_developer_edition:"
         ;;
-   "Zen Browser")
-        icon_result=":firefox_developer_edition:"
-        ;;
-   "Folx")
+      "Folx")
         icon_result=":folx:"
         ;;
    "Fork")
