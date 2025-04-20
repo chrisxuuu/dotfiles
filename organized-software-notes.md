@@ -152,9 +152,17 @@ sudo hostnamectl set-hostname your-new-hostname
 ```
 
 ### Font
-```
+```bash
 dnf install fira-code-fonts
 brew install font-fira-code
 ```
 
 ### Hyprland
+
+Fast Fetch
+```bash
+dnf install fastfetch
+```
+
+
+
