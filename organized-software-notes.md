@@ -118,11 +118,13 @@ If VSCode forces Python kernel selection:
 
 ### Removing Title/Date from PDF Exports
 1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates`
-2. Edit the `latex` folder or copy to create a new template
-3. Edit `base.tex.j2` file
-4. Delete the line: `((* block maketitle *))\maketitle((* endblock maketitle *))`
-5. Save and exit
-6. Use custom template: `jupyter nbconvert --to pdf filename.ipynb --template=hide_header`
+   - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora.
+   - Change Jupyterlab version and path accordingly.
+3. Edit the `latex` folder or copy to create a new template
+4. Edit `base.tex.j2` file
+5. Delete the line: `((* block maketitle *))\maketitle((* endblock maketitle *))`
+6. Save and exit
+7. Use custom template: `jupyter nbconvert --to pdf filename.ipynb --template=hide_header`
 
 ## R Markdown Configuration
 
