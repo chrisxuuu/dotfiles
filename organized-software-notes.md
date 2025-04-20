@@ -10,6 +10,24 @@
 ### Installation Troubleshooting
 - If Radian fails to install due to `rchitect` build issues:
   1. Fix using solution from github.com/randy3k/rchitect/issues/37
+  - Download Source.
+  - Find `process_events.c` file.
+  - Edit `R_ToplevelExec(cb_polled_events_interruptible, NULL);` function to be `R_ToplevelExec((void (*)(void *))cb_polled_events_interruptible, NULL);`.
+    ```
+    diff --git i/rchitect/src/process_events.c w/rchitect/src/process_events.c
+    index 3f07d02..4efe5f0 100644
+    --- i/rchitect/src/process_events.c
+    +++ w/rchitect/src/process_events.c
+    @@ -31,7 +31,7 @@ int peek_event(void) {
+    #else
+    
+    void polled_events() {
+    -    R_ToplevelExec(cb_polled_events_interruptible, NULL);
+    +    R_ToplevelExec((void (*)(void *))cb_polled_events_interruptible, NULL);
+    }
+    
+    static void Call_R_checkActivity(void** what) {
+    ```
   2. Compile manually: `sudo python3 setup.py install` from the directory
   3. Then run `pip install radian`
 
