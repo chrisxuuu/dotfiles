@@ -117,9 +117,12 @@ If VSCode forces Python kernel selection:
    ```
 
 ### Removing Title/Date from PDF Exports
-1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates`
+1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide)
    - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora.
-   - Change Jupyterlab version and path accordingly.
+   - For User-specific templates (recommended) on MacOS.
+     1. Make folder `mkdir -p /Users/chris/Library/Jupyter/nbconvert/templates/latex` if does not exist.
+     2. Copy over system-wide files `cp -r /opt/homebrew/Cellar/jupyterlab/4.4.0_1/libexec/share/jupyter/nbconvert/templates/latex/* /Users/chris/Library/Jupyter/nbconvert/templates/latex/`. Go to 4.
+   - Change Jupyterlab version and path accordingly. Replace Version Using `jupyter --paths`.
 3. Edit the `latex` folder or copy to create a new template
 4. Edit `base.tex.j2` file
 5. Delete the line: `((* block maketitle *))\maketitle((* endblock maketitle *))`
