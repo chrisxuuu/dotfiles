@@ -174,6 +174,21 @@ dnf install fira-code-fonts
 brew install font-fira-code
 ```
 
+### NVIDIA Driver on Fedora
+
+Driver available by default.
+
+```bash
+# Get all updates
+sudo dnf update -y
+sudo dnf install akmod-nvidia
+# cuda/nvenc/nvdec support
+sudo dnf install xorg-x11-drv-nvidia-cuda
+```
+
+Wait until kmod is built. Check using: `modinfo -F version nvidia`. Should output driver version number (440.64), rather than 
+`modinfo: ERROR: module nvidia not found`.
+
 ### Hyprland
 
 Fast Fetch
