@@ -196,3 +196,23 @@ Fast Fetch
 ```bash
 dnf install fastfetch
 ```
+
+## GPTK 3.0
+
+### Retina Support Resolution.
+
+Add Registry Entry:
+
+Change Path to Wine:
+```WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 regedit```
+
+Add at (New Key with name `RetinaMode` and value `y`:
+```
+[HKEY_CURRENT_USER\Software\Wine\Mac Driver]
+"RetinaMode" = "y"
+```
+Go to winecfg and change dpi scaling to 254 (or depending on the screen size) under the Graphics Tab:
+```
+WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 winecfg
+```
+
