@@ -72,12 +72,22 @@ return {
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- IMPORTANT: Setup mason_lspconfig first
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "lua_ls",
+        "r_language_server", -- For your R development
+        -- Add other servers you want auto-installed
+      },
+    })
+
+    -- Now setup handlers (this was the missing piece)
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
@@ -115,10 +125,18 @@ return {
         })
       end,
       ["r_language_server"] = function()
-        -- configure emmet language server
+        -- configure R language server
         lspconfig["r_language_server"].setup({
           capabilities = capabilities,
           filetypes = { "r", "rmd" },
+          settings = {
+            r = {
+              lsp = {
+                -- Enable rich documentation
+                rich_documentation = true,
+              },
+            },
+          },
         })
       end,
       ["lua_ls"] = function()
