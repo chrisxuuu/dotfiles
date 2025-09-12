@@ -131,8 +131,8 @@ If VSCode forces Python kernel selection:
 
 ### Removing Title/Date from PDF Exports
 
-1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide)
-   - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora.
+1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide. Don't use. Use userspace for permanent change)
+   - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora. Same path on Pop OS.
    - For User-specific templates (recommended) on MacOS.
      1. Make folder `mkdir -p /Users/chris/Library/Jupyter/nbconvert/templates/latex` if does not exist.
      2. Copy over system-wide files `cp -r /opt/homebrew/Cellar/jupyterlab/4.4.0_1/libexec/share/jupyter/nbconvert/templates/latex/* /Users/chris/Library/Jupyter/nbconvert/templates/latex/`. Go to 4.
@@ -196,6 +196,10 @@ Fast Fetch
 ```bash
 dnf install fastfetch
 ```
+## Firefox
+
+Remove session restore when powering off without closing Firefox:
+ - In `about:config`. Set `browser.sessionstore.max_resumed_crashes = 0`.
 
 ## GPTK 3.0
 
