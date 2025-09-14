@@ -61,6 +61,8 @@
 
 ## Jupyter Notebook with R
 
+Install jupyter through pip or through OS store. Check OS store (COSMIC on POP OS) first and install. Not recommended to use --break-system-packages.
+
 ### Installing R Kernel
 
 ```r
@@ -188,6 +190,21 @@ sudo dnf install xorg-x11-drv-nvidia-cuda
 
 Wait until kmod is built. Check using: `modinfo -F version nvidia`. Should output driver version number (440.64), rather than 
 `modinfo: ERROR: module nvidia not found`.
+
+### NVIDIA Driver on Ubuntu/Pop OS
+
+To find latest updated driver:
+```bash
+# Current Driver and Find the driver version
+nvidia-smi
+apt search nvidia-driver
+# Remove the current kernel driver
+sudo apt remove nvidia-driver-570-open
+# Install the latest stable driver (regular, not open)
+sudo apt install nvidia-driver-580
+# Or if you want to stick with open kernel drivers:
+sudo apt install nvidia-driver-580-open
+```
 
 ### Hyprland
 
