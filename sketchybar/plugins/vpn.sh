@@ -1,11 +1,11 @@
 #!/bin/bash
-
 VPN=$(scutil --nc list | grep Connected | sed -E 's/.*"(.*)".*/\1/')
-
 if [[ $VPN != "" ]]; then
-  sketchybar -m --set vpn icon= \
+  sketchybar --set "$NAME" icon="󰖂" \
                           label="$VPN" \
-                          drawing=on
+                          drawing=on \
+                          icon.color=0xff4ade80 \
+                          label.color=0xffffffff
 else
-  sketchybar -m --set vpn drawing=off
+  sketchybar --set "$NAME" drawing=off
 fi
