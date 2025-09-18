@@ -104,7 +104,8 @@ sketchybar --add item front_app left \
   --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
-sketchybar --add item clock right \
+sketchybar \
+  --add item clock right \
   --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
   --add item vpn right \
   --set vpn update_freq=5 script="$PLUGIN_DIR/vpn.sh" \

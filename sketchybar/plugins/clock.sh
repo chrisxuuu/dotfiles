@@ -5,4 +5,4 @@
 # https://felixkratz.github.io/SketchyBar/config/events#events-and-scripting
 
 # Pretty date/time format without extra spaces
-sketchybar --set "$NAME" label="$(date '+%H:%M • %a %d %b')"
+sketchybar --set "$NAME" icon="⏲" label="$(date '+%H:%M • %a %d %b')" 
