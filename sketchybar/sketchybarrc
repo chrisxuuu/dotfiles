@@ -99,7 +99,13 @@ sketchybar --add item space_separator left \
   --subscribe space_separator aerospace_workspace_change front_app_switched space_windows_change aerospace_monitor_change
 
 sketchybar --add item front_app left \
-  --set front_app icon.drawing=off \
+  --set front_app icon.drawing=on \
+  icon.font="sketchybar-app-font:Regular:16.0" \
+  icon.padding_left=8 \
+  icon.padding_right=4 \
+  label.drawing=on \
+  label.padding_left=4 \
+  label.padding_right=8 \
   script="$PLUGIN_DIR/front_app.sh" \
   --subscribe front_app front_app_switched
 
