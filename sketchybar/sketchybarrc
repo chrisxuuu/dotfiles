@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Don't load colors.sh - define all colors directly
-# source "$CONFIG_DIR/colors.sh" # Loads all defined colors
-
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 
@@ -71,27 +68,30 @@ for sid in $(aerospace list-workspaces --all); do
     script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
 
-# Load Icons on startup
+# Load Icons on startup - Show ALL workspaces
 for mid in $(aerospace list-monitors | cut -c1); do
-  for sid in $(aerospace list-workspaces --monitor $mid --empty no); do
-  apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
-
-  sketchybar --set space.$sid drawing=on
-
-  icon_strip=" "
-  if [ "${apps}" != "" ]; then
-    while read -r app; do
-      icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
-    done <<<"${apps}"
-  else
-    icon_strip=""
-  fi
-  sketchybar --set space.$sid label="$icon_strip"
+  # Show all workspaces for this monitor, including empty ones
+  for sid in $(aerospace list-workspaces --monitor $mid); do
+    apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+    
+    # Always set drawing=on to show all workspaces
+    sketchybar --set space.$sid drawing=on
+    
+    icon_strip=" "
+    if [ "${apps}" != "" ]; then
+      while read -r app; do
+        icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
+      done <<<"${apps}"
+    else
+      # Empty workspace - show just the workspace number/name
+      icon_strip=""
+    fi
+    sketchybar --set space.$sid label="$icon_strip"
   done
 done
 
 sketchybar --add item space_separator left \
-  --set space_separator icon=":" \
+  --set space_separator icon="❙" \
   icon.padding_left=4 \
   label.drawing=off \
   background.drawing=off \
