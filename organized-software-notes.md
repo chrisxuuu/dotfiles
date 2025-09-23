@@ -176,6 +176,23 @@ dnf install fira-code-fonts
 brew install font-fira-code
 ```
 
+### POP_OS Suspend Issue on NVIDIA Drivers
+
+If Pop_OS suspend does not turn off screen, edit PreserveMemoryAllocations to use a temporary directory:
+
+```bash
+sudo nano /etc/modprobe.d/nvidia-power-management.conf
+```
+Insert `options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp`, and save.
+
+Create temporary directory and update:
+
+```bash
+sudo mkdir -p /var/tmp
+sudo update-initramfs -u
+sudo reboot
+```
+
 ### NVIDIA Driver on Fedora
 
 Driver available by default.
