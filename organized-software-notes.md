@@ -178,7 +178,14 @@ brew install font-fira-code
 
 ### POP_OS Suspend Issue on NVIDIA Drivers
 
-If Pop_OS suspend does not turn off screen, edit PreserveMemoryAllocations to use a temporary directory:
+First, enable NVIDIA services:
+```bash
+sudo systemctl enable nvidia-suspend.service
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
+```
+
+If Pop_OS wake does not turn on screen, edit PreserveMemoryAllocations to use a temporary directory:
 
 ```bash
 sudo nano /etc/modprobe.d/nvidia-power-management.conf
