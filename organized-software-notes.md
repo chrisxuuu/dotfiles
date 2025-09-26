@@ -234,12 +234,6 @@ sudo apt install nvidia-driver-580-open
 ```bash
 pip --disable-pip-version-check list --outdated --format=json | python -c "import json, sys; print('\n'.join([x['name'] for x in json.load(sys.stdin)]))" | xargs -n1 pip install -U
 ```
-
-Fast Fetch
-
-```bash
-dnf install fastfetch
-```
 ## Firefox
 
 Remove session restore when powering off without closing Firefox:
@@ -262,5 +256,10 @@ Add at (New Key with name `RetinaMode` and value `y`:
 Go to winecfg and change dpi scaling to 254 (or depending on the screen size) under the Graphics Tab:
 ```
 WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 winecfg
+```
+
+## UV Python Env Manager
+```bash
+brew install uv
 ```
 
