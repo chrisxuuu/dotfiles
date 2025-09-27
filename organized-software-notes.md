@@ -263,3 +263,18 @@ WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 wine
 brew install uv
 ```
 
+## SSH GitHub Setup
+```bash
+ssh-keygen -t ed25519 -C "your-email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+```
+Copy Public Key and Paste it into Github Settings page.
+
+To clone:
+```bash
+git clone git@github.com:[Repository].git
+```
+
+
