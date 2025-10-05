@@ -262,6 +262,14 @@ WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 wine
 ```bash
 brew install uv
 ```
+Workflow:
+```bash
+cd ~/Documents/Homework/PHB_227/HW1
+source ~/Documents/Homework/.venv/bin/activate
+code .
+# Work in VSCode, select Python or R kernel as needed
+deactivate  # when done
+```
 
 ## SSH GitHub Setup
 ```bash
