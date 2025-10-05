@@ -133,7 +133,7 @@ If VSCode forces Python kernel selection:
 
 ### Removing Title/Date from PDF Exports
 
-1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide. Don't use. Use userspace for permanent change)
+1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide. Don't use. Use userspace for permanent change) (DEPRECATED, USE UV .venv at `~/Documents/Homework/.venv/lib/python3.13/site-packages/jupyterlab`.)
    - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora. Same path on Pop OS.
    - For User-specific templates (recommended) on MacOS.
      1. Make folder `mkdir -p /Users/chris/Library/Jupyter/nbconvert/templates/latex` if does not exist.
