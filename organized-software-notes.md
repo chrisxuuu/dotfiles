@@ -133,7 +133,7 @@ If VSCode forces Python kernel selection:
 
 ### Removing Title/Date from PDF Exports
 
-1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide. Don't use. Use userspace for permanent change) (DEPRECATED, USE UV .venv at `~/Documents/Homework/.venv/lib/python3.13/site-packages/jupyterlab`.)
+1. Navigate to: `/opt/homebrew/Cellar/jupyterlab/4.3.5/libexec/share/jupyter/nbconvert/templates` (System-Wide. Don't use. Use userspace for permanent change).
    - `/home/c/.local/share/jupyter/nbconvert/templates` on fedora. Same path on Pop OS.
    - For User-specific templates (recommended) on MacOS.
      1. Make folder `mkdir -p /Users/chris/Library/Jupyter/nbconvert/templates/latex` if does not exist.
@@ -269,6 +269,19 @@ source ~/Documents/Homework/.venv/bin/activate
 code .
 # Work in VSCode, select Python or R kernel as needed
 deactivate  # when done
+```
+Installing Global Packages (like pipx):
+```bash
+# Can run from anywhere
+uv tool install radian
+uv tool install ipython
+```
+
+Installing into .venv:
+```bash
+cd ~/Documents/Homework
+source .venv/bin/activate
+uv pip install pandas  # installs into the venv
 ```
 
 ## SSH GitHub Setup
