@@ -101,6 +101,16 @@ tlmgr install \
 jupyter nbconvert --to pdf test.ipynb
 ```
 
+### VSCode Migration to VSCodium
+```bash
+# Copy all extensions
+cp -R ~/.vscode/extensions ~/.vscode-oss/
+
+# Copy keybindings.json and settings.json files
+cp ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/VSCodium/User
+cp ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/VSCodium/User
+```
+
 ### VSCode PDF Export
 
 #### Troubleshooting VSCode Export
