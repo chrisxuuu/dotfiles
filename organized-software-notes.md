@@ -299,15 +299,20 @@ git branch -M main
 git push -u origin main
 ```
 
-Add Dependencies:
+Add Jupyter Dependencies:
 ```bash
-uv add requests
-# Specify a version constraint
-uv add 'requests==2.31.0'
-# Add a git dependency
-uv add git+https://github.com/psf/requests
-# Add all dependencies from `requirements.txt`.
-uv add -r requirements.txt -c constraints.txt
+uv add jupyter
+uv add jupyterlab
+uv add ipykernel
+```
+Then, Open the Folder in VSCode, make .ipynb file, and select .venv kernel.
+
+**NOTE: Must Make the "Removing Title/Date from PDF Exports" Edits to the Jupyter installation in .venv file, at `.venv/share/jupyter/nbconvert/templates/latex/base.tex.j2`.**
+Delete `((* block maketitle *))\maketitle((* endblock maketitle *))`.
+
+Add Dependencies (For Statistics Development):
+```bash
+uv add pandas numpy scipy statsmodels matplotlib seaborn
 ```
 
 Remove Dependencies:
