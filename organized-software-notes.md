@@ -268,10 +268,43 @@ Go to winecfg and change dpi scaling to 254 (or depending on the screen size) un
 WINEPREFIX=~/my-game-prefix `brew --prefix game-porting-toolkit`/bin/wine64 winecfg
 ```
 
-## UV Python Env Manager
+## UV Python Env Manager Workflow
 ```bash
 brew install uv
 ```
+Initialize a Project in a Directory:
+```bash
+uv init
+```
+
+Push it onto new repo on GitHub:
+```bash
+git add .
+git commit -m "Initial commit"
+```
+Create a new repository on GitHub (via web interface), but don't initialize it with README, .gitignore, or license.
+```bash
+git remote add origin git@github.com:yourusername/your-repo-name.git
+git branch -M main
+git push -u origin main
+```
+
+Add Dependencies:
+```bash
+uv add requests
+# Specify a version constraint
+uv add 'requests==2.31.0'
+# Add a git dependency
+uv add git+https://github.com/psf/requests
+# Add all dependencies from `requirements.txt`.
+uv add -r requirements.txt -c constraints.txt
+```
+
+Remove Dependencies:
+```bash
+uv remove requests
+```
+
 Workflow:
 ```bash
 cd ~/Documents/Homework/PHB_227/HW1
