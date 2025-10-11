@@ -286,6 +286,19 @@ uv init --no-vcs
    git add .
    git commit -m "Initial commit"
    ```
+ - Set Up .gitignore:
+   ```
+    # Python-generated files
+    __pycache__/
+    *.py[oc]
+    build/
+    dist/
+    wheels/
+    *.egg-info
+    
+    # Virtual environments
+    .venv
+   ```
 
 Push it onto new repo on GitHub:
 ```bash
