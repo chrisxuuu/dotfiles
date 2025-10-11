@@ -276,6 +276,16 @@ Initialize a Project in a Directory:
 ```bash
 uv init
 ```
+Initialize without Git:
+```bash
+uv init --no-vcs
+```
+ - Remove git from `uv init`: `rm -rf .git`. To add git later, use:
+ - ```
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
 
 Push it onto new repo on GitHub:
 ```bash
