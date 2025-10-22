@@ -1,0 +1,311 @@
+# Yazi Theme - VSCode Dark+ Inspired
+# Save this as ~/.config/yazi/theme.toml
+
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Flavor {{{
+[flavor]
+dark  = ""
+light = ""
+# : }}}
+
+# : Manager {{{
+[mgr]
+# VSCode sidebar blue for current working directory
+cwd = { fg = "#4EC9B0", bold = true }
+
+# Hovered - VSCode selection blue
+hovered = { fg = "#FFFFFF", bg = "#264F78" }
+preview_hovered = { underline = true }
+
+# Find - VSCode search highlight colors
+find_keyword  = { fg = "#DCDCAA", bold = true, italic = true, underline = true }
+find_position = { fg = "#C586C0", bg = "reset", bold = true, italic = true }
+
+# Symlink - purple like VSCode
+symlink_target = { fg = "#C586C0", italic = true }
+
+# Marker - VSCode accent colors
+marker_copied   = { fg = "#1e1e1e", bg = "#608B4E" }
+marker_cut      = { fg = "#1e1e1e", bg = "#F48771" }
+marker_marked   = { fg = "#1e1e1e", bg = "#4EC9B0" }
+marker_selected = { fg = "#1e1e1e", bg = "#DCDCAA" }
+
+# Count badges
+count_copied   = { fg = "#FFFFFF", bg = "#608B4E" }
+count_cut      = { fg = "#FFFFFF", bg = "#D16969" }
+count_selected = { fg = "#1e1e1e", bg = "#DCDCAA" }
+
+# Border - subtle like VSCode
+border_symbol = "│"
+border_style  = { fg = "#3E3E3E" }
+
+# Highlighting
+syntect_theme = ""
+# : }}}
+
+# : Tabs {{{
+[tabs]
+# Active tab - VSCode blue
+active = { fg = "#FFFFFF", bg = "#007ACC", bold = true }
+inactive = { fg = "#858585", bg = "#2D2D30" }
+
+# Separators
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+# : }}}
+
+# : Mode {{{
+[mode]
+# Normal mode - VSCode blue
+normal_main = { fg = "#FFFFFF", bg = "#007ACC", bold = true }
+normal_alt  = { fg = "#007ACC", bg = "#252526" }
+
+# Select mode - VSCode green
+select_main = { fg = "#FFFFFF", bg = "#608B4E", bold = true }
+select_alt  = { fg = "#608B4E", bg = "#252526" }
+
+# Unset mode - VSCode red
+unset_main = { fg = "#FFFFFF", bg = "#D16969", bold = true }
+unset_alt  = { fg = "#D16969", bg = "#252526" }
+# : }}}
+
+# : Status bar {{{
+[status]
+overall = { fg = "#D4D4D4", bg = "#007ACC" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions - VSCode syntax colors
+perm_sep   = { fg = "#6A6A6A" }
+perm_type  = { fg = "#608B4E" }  # Green
+perm_read  = { fg = "#DCDCAA" }  # Yellow
+perm_write = { fg = "#F48771" }  # Orange/Red
+perm_exec  = { fg = "#4EC9B0" }  # Cyan
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "#007ACC", bg = "#1e1e1e" }
+progress_error  = { fg = "#D16969", bg = "#1e1e1e" }
+# : }}}
+
+# : Which {{{
+[which]
+cols = 3
+mask = { bg = "#1e1e1e" }
+cand = { fg = "#4EC9B0" }
+rest = { fg = "#6A6A6A" }
+desc = { fg = "#C586C0" }
+separator = "  "
+separator_style = { fg = "#6A6A6A" }
+# : }}}
+
+# : Confirmation {{{
+[confirm]
+border  = { fg = "#007ACC" }
+title   = { fg = "#569CD6" }
+content = { fg = "#D4D4D4" }
+list    = { fg = "#D4D4D4" }
+btn_yes = { fg = "#1e1e1e", bg = "#608B4E", bold = true }
+btn_no  = { fg = "#1e1e1e", bg = "#D16969", bold = true }
+btn_labels = [ " [Y]es ", " (N)o " ]
+# : }}}
+
+# : Spotter {{{
+[spot]
+border = { fg = "#007ACC" }
+title  = { fg = "#569CD6" }
+
+# Table
+tbl_col  = { fg = "#569CD6" }
+tbl_cell = { fg = "#DCDCAA", reversed = true }
+# : }}}
+
+# : Notification {{{
+[notify]
+title_info  = { fg = "#608B4E" }
+title_warn  = { fg = "#CE9178" }
+title_error = { fg = "#D16969" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+# : }}}
+
+# : Picker {{{
+[pick]
+border   = { fg = "#007ACC" }
+active   = { fg = "#C586C0", bold = true }
+inactive = { fg = "#858585" }
+# : }}}
+
+# : Input {{{
+[input]
+border   = { fg = "#007ACC" }
+title    = { fg = "#569CD6" }
+value    = { fg = "#D4D4D4" }
+selected = { fg = "#FFFFFF", bg = "#264F78" }
+# : }}}
+
+# : Completion {{{
+[cmp]
+border   = { fg = "#007ACC" }
+active   = { fg = "#FFFFFF", bg = "#264F78" }
+inactive = { fg = "#D4D4D4" }
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+# : }}}
+
+# : Task manager {{{
+[tasks]
+border  = { fg = "#007ACC" }
+title   = { fg = "#569CD6" }
+hovered = { fg = "#C586C0", underline = true }
+# : }}}
+
+# : Help menu {{{
+[help]
+on     = { fg = "#4EC9B0" }
+run    = { fg = "#C586C0" }
+desc   = { fg = "#D4D4D4" }
+hovered = { fg = "#FFFFFF", bg = "#264F78", bold = true }
+footer  = { fg = "#1e1e1e", bg = "#D4D4D4" }
+# : }}}
+
+# : File-specific styles {{{
+[filetype]
+rules = [
+    # Images - magenta
+    { mime = "image/*", fg = "#C586C0" },
+    
+    # Media - orange
+    { mime = "{audio,video}/*", fg = "#CE9178" },
+    
+    # Archives - red
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#D16969" },
+    
+    # Documents - blue
+    { mime = "application/{pdf,doc,rtf}", fg = "#569CD6" },
+    
+    # Special files
+    { name = "*", is = "orphan", fg = "#D16969", bg = "#5A1E1E" },
+    { name = "*", is = "exec",   fg = "#608B4E", bold = true },
+    
+    # Dummy files
+    { name = "*",  is = "dummy", fg = "#6A6A6A", bg = "#3E1E1E" },
+    { name = "*/", is = "dummy", fg = "#6A6A6A", bg = "#3E1E1E" },
+    
+    # Directories - cyan
+    { name = "*/", fg = "#4EC9B0", bold = true },
+    
+    # Default files - light gray
+    { name = "*", fg = "#D4D4D4" },
+]
+# : }}}
+
+# : Icons {{{
+[icon]
+# Using the same comprehensive icon configuration
+globs = []
+dirs = [
+    { name = ".config",     text = "" },
+    { name = ".git",        text = "" },
+    { name = ".github",     text = "" },
+    { name = "Desktop",     text = "" },
+    { name = "Documents",   text = "" },
+    { name = "Downloads",   text = "" },
+    { name = "Music",       text = "" },
+    { name = "Pictures",    text = "" },
+    { name = "Videos",      text = "" },
+    { name = "node_modules", text = "" },
+]
+files = [
+    # Configuration files
+    { name = ".gitignore",        text = "", fg = "#F54D27" },
+    { name = "package.json",      text = "", fg = "#E8274B" },
+    { name = "tsconfig.json",     text = "", fg = "#519ABA" },
+    { name = "Dockerfile",        text = "󰡨", fg = "#458EE6" },
+    { name = "docker-compose.yml", text = "󰡨", fg = "#458EE6" },
+    { name = "README.md",         text = "󰂺", fg = "#EDEDED" },
+    { name = "LICENSE",           text = "", fg = "#D0BF41" },
+]
+exts = [
+    # Programming languages - matching VSCode colors
+    { name = "js",   text = "", fg = "#DCDCAA" },  # Yellow
+    { name = "ts",   text = "", fg = "#569CD6" },  # Blue
+    { name = "jsx",  text = "", fg = "#4EC9B0" },  # Cyan
+    { name = "tsx",  text = "", fg = "#4FC3F7" },  # Light Blue
+    { name = "py",   text = "", fg = "#DCDCAA" },  # Yellow
+    { name = "rs",   text = "", fg = "#DEA584" },  # Rust orange
+    { name = "go",   text = "", fg = "#4EC9B0" },  # Cyan
+    { name = "java", text = "", fg = "#CC3E44" },  # Red
+    { name = "c",    text = "", fg = "#599EFF" },  # Blue
+    { name = "cpp",  text = "", fg = "#569CD6" },  # Blue
+    { name = "h",    text = "", fg = "#A074C4" },  # Purple
+    { name = "rb",   text = "", fg = "#D16969" },  # Red
+    { name = "php",  text = "", fg = "#A074C4" },  # Purple
+    
+    # R language
+    { name = "r",    text = "󰟔", fg = "#569CD6" },  # Blue
+    { name = "R",    text = "󰟔", fg = "#569CD6" },  # Blue
+    { name = "rmd",  text = "", fg = "#4EC9B0" },   # Cyan
+    { name = "rproj", text = "󰗆", fg = "#358A5B" }, # Green
+    
+    # Web files
+    { name = "html", text = "", fg = "#E34C26" },
+    { name = "css",  text = "", fg = "#569CD6" },
+    { name = "scss", text = "", fg = "#C586C0" },
+    { name = "json", text = "", fg = "#DCDCAA" },
+    { name = "xml",  text = "󰗀", fg = "#E37933" },
+    
+    # Data files
+    { name = "csv",  text = "", fg = "#608B4E" },
+    { name = "sql",  text = "", fg = "#D4D4D4" },
+    
+    # Markdown and text
+    { name = "md",   text = "", fg = "#D4D4D4" },
+    { name = "txt",  text = "󰈙", fg = "#D4D4D4" },
+    
+    # Archives
+    { name = "zip",  text = "", fg = "#D16969" },
+    { name = "tar",  text = "", fg = "#D16969" },
+    { name = "gz",   text = "", fg = "#D16969" },
+    
+    # Images
+    { name = "png",  text = "", fg = "#C586C0" },
+    { name = "jpg",  text = "", fg = "#C586C0" },
+    { name = "gif",  text = "", fg = "#C586C0" },
+    { name = "svg",  text = "󰜡", fg = "#FFB13B" },
+    
+    # Documents
+    { name = "pdf",  text = "", fg = "#D16969" },
+    { name = "doc",  text = "󰈬", fg = "#569CD6" },
+    { name = "docx", text = "󰈬", fg = "#569CD6" },
+    { name = "xls",  text = "󰈛", fg = "#608B4E" },
+    { name = "xlsx", text = "󰈛", fg = "#608B4E" },
+    { name = "ppt",  text = "󰈧", fg = "#D16969" },
+    { name = "pptx", text = "󰈧", fg = "#D16969" },
+]
+conds = [
+    # Special files
+    { if = "orphan", text = "" },
+    { if = "link",   text = "" },
+    { if = "block",  text = "" },
+    { if = "char",   text = "" },
+    { if = "fifo",   text = "" },
+    { if = "sock",   text = "" },
+    { if = "sticky", text = "" },
+    { if = "dummy",  text = "" },
+    
+    # Fallback
+    { if = "dir",    text = "" },
+    { if = "exec",   text = "" },
+    { if = "!dir",   text = "" },
+]
+# : }}}
