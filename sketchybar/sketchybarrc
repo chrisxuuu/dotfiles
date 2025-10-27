@@ -110,6 +110,9 @@ sketchybar --add item front_app left \
     --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
+# Note: Right items appear in REVERSE order (first added = rightmost)
+
+# System indicators (rightmost)
 sketchybar \
     --add item clock right \
     --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
@@ -129,6 +132,26 @@ sketchybar \
     --add item battery right \
     --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
     --subscribe battery system_woke power_source_change
+
+# Separator between system indicators and background apps
+sketchybar --add item right_separator right \
+    --set right_separator \
+    icon="❙" \
+    icon.padding_left=4 \
+    icon.padding_right=4 \
+    label.drawing=off \
+    background.drawing=off
+
+# Background apps updater (invisible item that triggers the script)
+sketchybar --add item background_apps_updater right \
+    --set background_apps_updater \
+    script="$PLUGIN_DIR/background_apps_dynamic.sh" \
+    icon.drawing=off \
+    label.drawing=off \
+    background.drawing=off \
+    width=0 \
+    --subscribe background_apps_updater \
+    front_app_switched
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
