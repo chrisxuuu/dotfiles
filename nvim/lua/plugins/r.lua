@@ -1,28 +1,27 @@
--- Nvim-R Configuration
--- Place this file in: ~/.config/nvim/lua/plugins/r.lua
--- (if using lazy.nvim plugin manager)
-
 return {
 	"R-nvim/R.nvim",
 	lazy = false,
-	-- Omit version to get latest, or pin to a specific version if you need stability
 	-- version = "~0.1.0",
 	config = function()
 		-- Create the config variable
 		local opts = {
-			-- R options
-			R_args = { "--quiet", "--no-save" },
+			-- Use radian instead of base R
+      R_app = "radian",
+      R_cmd = "R",
 
-			-- Console configuration (bottom panel)
+			-- R options
+			R_args = {},
+
+			-- Console configuration
 			min_editor_width = 72,
-			rconsole_width = 80, -- 0 = use full width
-			rconsole_height = 0, -- Height of bottom panel in lines
+			rconsole_width = 80,
+			rconsole_height = 0,
 
 			-- Disable object browser auto-start (optional)
 			objbr_auto_start = false,
 
 			-- Auto start R REPL on .R file open
-			auto_start = "always", -- Start automatically without asking
+			auto_start = "on startup",
 
 			-- Syntax highlighting in R console
 			hl_term = true,
