@@ -31,6 +31,11 @@ return { -- Highlight, edit, and navigate code
       'tsx',
       'css',
       'html',
+      -- R-related parsers for R.nvim
+      'r',
+      'rnoweb',
+      'latex',
+      'csv',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
