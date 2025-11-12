@@ -32,7 +32,7 @@ return {
 			-- Console configuration
 			min_editor_width = 72,
 			rconsole_width = 80,
-			rconsole_height = 0,
+			rconsole_height = 00,
 			-- Disable object browser auto-start (optional)
 			objbr_auto_start = false,
 			-- Auto start R REPL on .R file open
@@ -41,6 +41,8 @@ return {
 			hl_term = false,
 			-- Bracketed paste mode (disable if seeing weird 00~ codes)
 			bracketed_paste = true,
+			parenblock = true,
+			pdfviewer = "open",
 		}
 		-- Setup the plugin
 		require("r").setup(opts)

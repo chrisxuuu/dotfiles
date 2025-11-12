@@ -1,12 +1,21 @@
 #!/bin/bash
-# Background apps display for SketchyBar
+# Test version that actually creates items
 
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
 
-# Get running GUI applications
-running_apps=$(osascript -e 'tell application "System Events" to get name of every application process whose background only is false' 2>/dev/null)
+echo "=== Removing existing background app items ==="
+existing_items=$(sketchybar --query bar 2>/dev/null | grep -o 'background_app\.[0-9]*')
+if [ -n "$existing_items" ]; then
+    echo "Found existing items: $existing_items"
+    echo "$existing_items" | xargs -I {} sketchybar --remove {} 2>/dev/null
+else
+    echo "No existing items found"
+fi
 
-# Apps to exclude (system apps and utilities only)
+echo -e "\n=== Getting running apps ==="
+running_apps=$(osascript -e 'tell application "System Events" to get name of every application process whose background only is false' 2>/dev/null)
+echo "Running apps: $running_apps"
+
 EXCLUDE_APPS=(
     "Finder"
     "SketchyBar"
@@ -30,14 +39,9 @@ EXCLUDE_APPS=(
     "WezTerm"
 )
 
-# Convert running apps to array
 IFS=', ' read -ra apps_array <<< "$running_apps"
 
-# Remove all existing background app items
-existing_items=$(sketchybar --query bar 2>/dev/null | grep -o 'background_app\.[0-9]*')
-[ -n "$existing_items" ] && echo "$existing_items" | xargs -I {} sketchybar --remove {} 2>/dev/null
-
-# Create new items for each background app
+echo -e "\n=== Creating items ==="
 position=0
 for app in "${apps_array[@]}"; do
     # Skip if in exclude list
@@ -55,9 +59,14 @@ for app in "${apps_array[@]}"; do
     icon=$("$CONFIG_DIR/plugins/icon_map_fn.sh" "$app" 2>/dev/null)
     
     # Skip invalid icons
-    [ -z "$icon" ] || [ "$icon" = ":default:" ] || [ "$icon" = " " ] && continue
+    if [ -z "$icon" ] || [ "$icon" = ":default:" ] || [ "$icon" = " " ]; then
+        echo "Skipping $app - invalid icon: '$icon'"
+        continue
+    fi
     
     item_name="background_app.$position"
+    
+    echo "Creating $item_name for $app with icon $icon"
     
     sketchybar --add item "$item_name" right \
         --set "$item_name" \
@@ -71,5 +80,20 @@ for app in "${apps_array[@]}"; do
         background.height=20 \
         click_script="open -a '$app'"
     
+    # Verify it was created
+    if sketchybar --query "$item_name" &>/dev/null; then
+        echo "✓ $item_name created successfully"
+        # Show what sketchybar sees
+        sketchybar --query "$item_name" | grep -E "(icon|label|drawing)" | head -5
+    else
+        echo "✗ Failed to create $item_name"
+    fi
+    
     position=$((position + 1))
 done
+
+echo -e "\n=== Checking font ==="
+sketchybar --query bar | grep -i font | head -5
+
+echo -e "\n=== Summary ==="
+echo "Created $position background app items"
