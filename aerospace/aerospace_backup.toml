@@ -65,6 +65,11 @@ outer.bottom = 0
 outer.top = 20
 outer.right = 0
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'python'
+if.window-title-regex-substring = 'Quartz'
+run = 'layout floating'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
