@@ -5,10 +5,10 @@ ITEM_DIR="$CONFIG_DIR/items"
 
 # Define colors directly (muted blue scheme)
 WHITE=0xffffffff
-BAR_COLOR=0xff0f1419
-ITEM_BG_COLOR=0xff2d3748
+BAR_COLOR=0x000f1419
+ITEM_BG_COLOR=0xff1a202c
 ACCENT_COLOR=0xff517c9b
-MUTED_BLUE_BG=0x662d3748
+MUTED_BLUE_BG=0x661a202c
 MUTED_BLUE_BORDER=0xaa517c9b
 
 ##### Bar Appearance #####
@@ -29,7 +29,6 @@ default=(
     icon.padding_right=4
     label.padding_left=4
     label.padding_right=4
-    bar.height=20
 )
 sketchybar --default "${default[@]}"
 
