@@ -5,30 +5,30 @@ ITEM_DIR="$CONFIG_DIR/items"
 
 # Define colors directly (muted blue scheme)
 WHITE=0xffffffff
-BAR_COLOR=0x000f1419
-ITEM_BG_COLOR=0xff1a202c
-ACCENT_COLOR=0xff517c9b
-MUTED_BLUE_BG=0x661a202c
-MUTED_BLUE_BORDER=0xaa517c9b
+BAR_COLOR=0x000f1419         #0f1419
+ITEM_BG_COLOR=0xff1a202c     #1a202c
+ACCENT_COLOR=0xff517c9b      #517c9b
+MUTED_BLUE_BG=0x661a202c     #1a202c
+MUTED_BLUE_BORDER=0xaa517c9b #517c9b
 
 ##### Bar Appearance #####
-sketchybar --bar position=top height=20 blur_radius=30 color=$BAR_COLOR
+sketchybar --bar position=top height=20 blur_radius=0 color=$BAR_COLOR
 
 ##### Changing Defaults #####
 default=(
-    padding_left=5
-    padding_right=5
-    icon.font="Hack Nerd Font:Bold:12.0"
-    label.font="Hack Nerd Font:Bold:12.0"
-    icon.color=$WHITE
-    label.color=$WHITE
-    background.color=$MUTED_BLUE_BG
-    background.corner_radius=5
-    background.height=20
-    icon.padding_left=4
-    icon.padding_right=4
-    label.padding_left=4
-    label.padding_right=4
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Bold:12.0"
+  label.font="Hack Nerd Font:Bold:12.0"
+  icon.color=$WHITE
+  label.color=$WHITE
+  background.color=$MUTED_BLUE_BG
+  background.corner_radius=5
+  background.height=20
+  icon.padding_left=4
+  icon.padding_right=4
+  label.padding_left=4
+  label.padding_right=4
 )
 sketchybar --default "${default[@]}"
 
@@ -36,122 +36,122 @@ sketchybar --default "${default[@]}"
 sketchybar --add event aerospace_workspace_change
 sketchybar --add event aerospace_monitor_change
 for sid in $(aerospace list-workspaces --all); do
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        display="$(
-            v=$(aerospace list-windows --workspace "$sid" --format "%{monitor-appkit-nsscreen-screens-id}" | cut -c1)
-            echo "${v:-1}"
-        )" \
-        drawing=off \
-        background.color=$MUTED_BLUE_BG \
-        background.corner_radius=6 \
-        background.drawing=on \
-        background.border_color=$MUTED_BLUE_BORDER \
-        background.border_width=0 \
-        background.height=20 \
-        icon="$sid" \
-        icon.color=0xffffffff \
-        icon.padding_left=10 \
-        icon.shadow.distance=4 \
-        icon.shadow.color=0xA0000000 \
-        label.font="sketchybar-app-font:Regular:16.0" \
-        label.color=0xffffffff \
-        label.padding_right=20 \
-        label.padding_left=0 \
-        label.y_offset=-1 \
-        label.shadow.drawing=off \
-        label.shadow.color=0xA0000000 \
-        label.shadow.distance=4 \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+  sketchybar --add item space.$sid left \
+    --subscribe space.$sid aerospace_workspace_change \
+    --set space.$sid \
+    display="$(
+      v=$(aerospace list-windows --workspace "$sid" --format "%{monitor-appkit-nsscreen-screens-id}" | cut -c1)
+      echo "${v:-1}"
+    )" \
+    drawing=off \
+    background.color=$MUTED_BLUE_BG \
+    background.corner_radius=6 \
+    background.drawing=on \
+    background.border_color=$MUTED_BLUE_BORDER \
+    background.border_width=0 \
+    background.height=20 \
+    icon="$sid" \
+    icon.color=0xffffffff \
+    icon.padding_left=10 \
+    icon.shadow.distance=4 \
+    icon.shadow.color=0xA0000000 \
+    label.font="sketchybar-app-font:Regular:16.0" \
+    label.color=0xffffffff \
+    label.padding_right=20 \
+    label.padding_left=0 \
+    label.y_offset=-1 \
+    label.shadow.drawing=off \
+    label.shadow.color=0xA0000000 \
+    label.shadow.distance=4 \
+    click_script="aerospace workspace $sid" \
+    script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
 
 # Load Icons on startup - Show ALL workspaces
 for mid in $(aerospace list-monitors | cut -c1); do
-    # Show all workspaces for this monitor, including empty ones
-    for sid in $(aerospace list-workspaces --monitor $mid); do
-        apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+  # Show all workspaces for this monitor, including empty ones
+  for sid in $(aerospace list-workspaces --monitor $mid); do
+    apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-        # Always set drawing=on to show all workspaces
-        sketchybar --set space.$sid drawing=on
+    # Always set drawing=on to show all workspaces
+    sketchybar --set space.$sid drawing=on
 
-        icon_strip=" "
-        if [ "${apps}" != "" ]; then
-            while read -r app; do
-                icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
-            done <<<"${apps}"
-        else
-            # Empty workspace - show just the workspace number/name
-            icon_strip=""
-        fi
-        sketchybar --set space.$sid label="$icon_strip"
-    done
+    icon_strip=" "
+    if [ "${apps}" != "" ]; then
+      while read -r app; do
+        icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
+      done <<<"${apps}"
+    else
+      # Empty workspace - show just the workspace number/name
+      icon_strip=""
+    fi
+    sketchybar --set space.$sid label="$icon_strip"
+  done
 done
 
 sketchybar --add item space_separator left \
-    --set space_separator icon="❙" \
-    icon.padding_left=4 \
-    label.drawing=off \
-    background.drawing=off \
-    script="$PLUGIN_DIR/space_windows.sh" \
-    --subscribe space_separator aerospace_workspace_change front_app_switched space_windows_change aerospace_monitor_change
+  --set space_separator icon="❙" \
+  icon.padding_left=4 \
+  label.drawing=off \
+  background.drawing=off \
+  script="$PLUGIN_DIR/space_windows.sh" \
+  --subscribe space_separator aerospace_workspace_change front_app_switched space_windows_change aerospace_monitor_change
 
 sketchybar --add item front_app left \
-    --set front_app icon.drawing=on \
-    icon.font="sketchybar-app-font:Regular:16.0" \
-    icon.padding_left=8 \
-    icon.padding_right=4 \
-    label.drawing=on \
-    label.padding_left=4 \
-    label.padding_right=8 \
-    script="$PLUGIN_DIR/front_app.sh" \
-    --subscribe front_app front_app_switched
+  --set front_app icon.drawing=on \
+  icon.font="sketchybar-app-font:Regular:16.0" \
+  icon.padding_left=8 \
+  icon.padding_right=4 \
+  label.drawing=on \
+  label.padding_left=4 \
+  label.padding_right=8 \
+  script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
 # Note: Right items appear in REVERSE order (first added = rightmost)
 
 # System indicators (rightmost)
 sketchybar \
-    --add item clock right \
-    --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
-    --add item vpn right \
-    --set vpn update_freq=5 script="$PLUGIN_DIR/vpn.sh" \
-    drawing=off \
-    --add item wifi right \
-    --set wifi update_freq=5 script="$PLUGIN_DIR/wifi.sh" \
-    --subscribe wifi wifi_change \
-    --add item mic right \
-    --set mic update_freq=1 script="$PLUGIN_DIR/mic.sh" \
-    click_script="$PLUGIN_DIR/mic_toggle.sh" \
-    --subscribe mic mic_change \
-    --add item volume right \
-    --set volume script="$PLUGIN_DIR/volume.sh" \
-    --subscribe volume volume_change \
-    --add item battery right \
-    --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-    --subscribe battery system_woke power_source_change
+  --add item clock right \
+  --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
+  --add item vpn right \
+  --set vpn update_freq=5 script="$PLUGIN_DIR/vpn.sh" \
+  drawing=off \
+  --add item wifi right \
+  --set wifi update_freq=5 script="$PLUGIN_DIR/wifi.sh" \
+  --subscribe wifi wifi_change \
+  --add item mic right \
+  --set mic update_freq=1 script="$PLUGIN_DIR/mic.sh" \
+  click_script="$PLUGIN_DIR/mic_toggle.sh" \
+  --subscribe mic mic_change \
+  --add item volume right \
+  --set volume script="$PLUGIN_DIR/volume.sh" \
+  --subscribe volume volume_change \
+  --add item battery right \
+  --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
 
 # Separator between system indicators and background apps
 sketchybar --add item right_separator right \
-    --set right_separator \
-    icon="❙" \
-    icon.padding_left=4 \
-    icon.padding_right=4 \
-    label.drawing=off \
-    background.drawing=off
+  --set right_separator \
+  icon="❙" \
+  icon.padding_left=4 \
+  icon.padding_right=4 \
+  label.drawing=off \
+  background.drawing=off
 
 # Background apps updater (invisible item that triggers the script)
 sketchybar --add item background_apps_updater right \
-    --set background_apps_updater \
-    script="$PLUGIN_DIR/background_apps_dynamic.sh" \
-    icon.drawing=off \
-    label.drawing=off \
-    background.drawing=off \
-    width=0 \
-    --subscribe background_apps_updater \
-    aerospace_workspace_change \
-    front_app_switched
+  --set background_apps_updater \
+  script="$PLUGIN_DIR/background_apps_dynamic.sh" \
+  icon.drawing=off \
+  label.drawing=off \
+  background.drawing=off \
+  width=0 \
+  --subscribe background_apps_updater \
+  aerospace_workspace_change \
+  front_app_switched
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
