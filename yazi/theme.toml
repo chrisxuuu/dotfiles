@@ -1,4 +1,4 @@
-# Yazi Theme - VSCode Dark+ Inspired
+# Yazi Theme - Tokyo Night
 # Save this as ~/.config/yazi/theme.toml
 
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
@@ -13,34 +13,34 @@ light = ""
 
 # : Manager {{{
 [mgr]
-# VSCode sidebar blue for current working directory
-cwd = { fg = "#4EC9B0", bold = true }
+# Tokyo Night cyan for current working directory
+cwd = { fg = "#7dcfff", bold = false }
 
-# Hovered - VSCode selection blue
-hovered = { fg = "#FFFFFF", bg = "#264F78" }
+# Hovered - Tokyo Night selection
+hovered = { fg = "#c0caf5", bg = "#3d59a1" }
 preview_hovered = { underline = false }
 
-# Find - VSCode search highlight colors
-find_keyword = { fg = "#DCDCAA", bold = true, italic = true, underline = true }
-find_position = { fg = "#C586C0", bg = "reset", bold = true, italic = true }
+# Find - Tokyo Night search highlight colors
+find_keyword = { fg = "#e0af68", bold = true, italic = true, underline = true }
+find_position = { fg = "#bb9af7", bg = "reset", bold = true, italic = true }
 
-# Symlink - purple like VSCode
-symlink_target = { fg = "#C586C0", italic = true }
+# Symlink - purple like Tokyo Night
+symlink_target = { fg = "#bb9af7", italic = true }
 
-# Marker - VSCode accent colors
-marker_copied = { fg = "#1e1e1e", bg = "#608B4E" }
-marker_cut = { fg = "#1e1e1e", bg = "#F48771" }
-marker_marked = { fg = "#1e1e1e", bg = "#4EC9B0" }
-marker_selected = { fg = "#1e1e1e", bg = "#DCDCAA" }
+# Marker - Tokyo Night accent colors
+marker_copied = { fg = "#1a1b26", bg = "#9ece6a" }
+marker_cut = { fg = "#1a1b26", bg = "#f7768e" }
+marker_marked = { fg = "#1a1b26", bg = "#7dcfff" }
+marker_selected = { fg = "#1a1b26", bg = "#e0af68" }
 
 # Count badges
-count_copied = { fg = "#FFFFFF", bg = "#608B4E" }
-count_cut = { fg = "#FFFFFF", bg = "#D16969" }
-count_selected = { fg = "#1e1e1e", bg = "#DCDCAA" }
+count_copied = { fg = "#c0caf5", bg = "#9ece6a" }
+count_cut = { fg = "#c0caf5", bg = "#f7768e" }
+count_selected = { fg = "#1a1b26", bg = "#e0af68" }
 
-# Border - subtle like VSCode
+# Border - subtle like Tokyo Night
 border_symbol = "│"
-border_style = { fg = "#3E3E3E" }
+border_style = { fg = "#414868" }
 
 # Highlighting
 syntect_theme = ""
@@ -48,9 +48,9 @@ syntect_theme = ""
 
 # : Tabs {{{
 [tabs]
-# Active tab - VSCode blue
-active = { fg = "#FFFFFF", bg = "#007ACC", bold = true }
-inactive = { fg = "#858585", bg = "#2D2D30" }
+# Active tab - Tokyo Night blue
+active = { fg = "#c0caf5", bg = "#7aa2f7", bold = true }
+inactive = { fg = "#565f89", bg = "#24283b" }
 
 # Separators
 sep_inner = { open = "", close = "" }
@@ -59,75 +59,75 @@ sep_outer = { open = "", close = "" }
 
 # : Mode {{{
 [mode]
-# Normal mode - VSCode blue
-normal_main = { fg = "#FFFFFF", bg = "#007ACC", bold = true }
-normal_alt = { fg = "#007ACC", bg = "#252526" }
+# Normal mode - Tokyo Night blue
+normal_main = { fg = "#c0caf5", bg = "#7aa2f7", bold = true }
+normal_alt = { fg = "#7aa2f7", bg = "#1a1b26" }
 
-# Select mode - VSCode green
-select_main = { fg = "#FFFFFF", bg = "#608B4E", bold = true }
-select_alt = { fg = "#608B4E", bg = "#252526" }
+# Select mode - Tokyo Night green
+select_main = { fg = "#1a1b26", bg = "#9ece6a", bold = true }
+select_alt = { fg = "#9ece6a", bg = "#1a1b26" }
 
-# Unset mode - VSCode red
-unset_main = { fg = "#FFFFFF", bg = "#D16969", bold = true }
-unset_alt = { fg = "#D16969", bg = "#252526" }
+# Unset mode - Tokyo Night red
+unset_main = { fg = "#c0caf5", bg = "#f7768e", bold = true }
+unset_alt = { fg = "#f7768e", bg = "#1a1b26" }
 # : }}}
 
 # : Status bar {{{
 [status]
-overall = { fg = "#D4D4D4", bg = "#007ACC" }
+overall = { fg = "#c0caf5", bg = "#7aa2f7" }
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
-# Permissions - VSCode syntax colors
-perm_sep = { fg = "#6A6A6A" }
-perm_type = { fg = "#608B4E" }  # Green
-perm_read = { fg = "#DCDCAA" }  # Yellow
-perm_write = { fg = "#F48771" } # Orange/Red
-perm_exec = { fg = "#4EC9B0" }  # Cyan
+# Permissions - Tokyo Night syntax colors
+perm_sep = { fg = "#565f89" }
+perm_type = { fg = "#9ece6a" }  # Green
+perm_read = { fg = "#e0af68" }  # Yellow
+perm_write = { fg = "#f7768e" } # Red
+perm_exec = { fg = "#7dcfff" }  # Cyan
 
 # Progress
 progress_label = { bold = true }
-progress_normal = { fg = "#007ACC", bg = "#1e1e1e" }
-progress_error = { fg = "#D16969", bg = "#1e1e1e" }
+progress_normal = { fg = "#7aa2f7", bg = "#1a1b26" }
+progress_error = { fg = "#f7768e", bg = "#1a1b26" }
 # : }}}
 
 # : Which {{{
 [which]
 cols = 3
-mask = { bg = "#1e1e1e" }
-cand = { fg = "#4EC9B0" }
-rest = { fg = "#6A6A6A" }
-desc = { fg = "#C586C0" }
+mask = { bg = "#1a1b26" }
+cand = { fg = "#7dcfff" }
+rest = { fg = "#565f89" }
+desc = { fg = "#bb9af7" }
 separator = "  "
-separator_style = { fg = "#6A6A6A" }
+separator_style = { fg = "#565f89" }
 # : }}}
 
 # : Confirmation {{{
 [confirm]
-border = { fg = "#007ACC" }
-title = { fg = "#569CD6" }
-content = { fg = "#D4D4D4" }
-list = { fg = "#D4D4D4" }
-btn_yes = { fg = "#1e1e1e", bg = "#608B4E", bold = true }
-btn_no = { fg = "#1e1e1e", bg = "#D16969", bold = true }
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+content = { fg = "#c0caf5" }
+list = { fg = "#c0caf5" }
+btn_yes = { fg = "#1a1b26", bg = "#9ece6a", bold = true }
+btn_no = { fg = "#1a1b26", bg = "#f7768e", bold = true }
 btn_labels = [" [Y]es ", " (N)o "]
 # : }}}
 
 # : Spotter {{{
 [spot]
-border = { fg = "#007ACC" }
-title = { fg = "#569CD6" }
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
 
 # Table
-tbl_col = { fg = "#569CD6" }
-tbl_cell = { fg = "#DCDCAA", reversed = true }
+tbl_col = { fg = "#7aa2f7" }
+tbl_cell = { fg = "#e0af68", reversed = true }
 # : }}}
 
 # : Notification {{{
 [notify]
-title_info = { fg = "#608B4E" }
-title_warn = { fg = "#CE9178" }
-title_error = { fg = "#D16969" }
+title_info = { fg = "#9ece6a" }
+title_warn = { fg = "#e0af68" }
+title_error = { fg = "#f7768e" }
 
 # Icons
 icon_info = ""
@@ -137,24 +137,24 @@ icon_error = ""
 
 # : Picker {{{
 [pick]
-border = { fg = "#007ACC" }
-active = { fg = "#C586C0", bold = true }
-inactive = { fg = "#858585" }
+border = { fg = "#7aa2f7" }
+active = { fg = "#bb9af7", bold = true }
+inactive = { fg = "#565f89" }
 # : }}}
 
 # : Input {{{
 [input]
-border = { fg = "#007ACC" }
-title = { fg = "#569CD6" }
-value = { fg = "#D4D4D4" }
-selected = { fg = "#FFFFFF", bg = "#264F78" }
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+value = { fg = "#c0caf5" }
+selected = { fg = "#c0caf5", bg = "#3d59a1" }
 # : }}}
 
 # : Completion {{{
 [cmp]
-border = { fg = "#007ACC" }
-active = { fg = "#FFFFFF", bg = "#264F78" }
-inactive = { fg = "#D4D4D4" }
+border = { fg = "#7aa2f7" }
+active = { fg = "#c0caf5", bg = "#3d59a1" }
+inactive = { fg = "#c0caf5" }
 
 # Icons
 icon_file = ""
@@ -164,54 +164,53 @@ icon_command = ""
 
 # : Task manager {{{
 [tasks]
-border = { fg = "#007ACC" }
-title = { fg = "#569CD6" }
-hovered = { fg = "#C586C0", underline = true }
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+hovered = { fg = "#bb9af7", underline = true }
 # : }}}
 
 # : Help menu {{{
 [help]
-on = { fg = "#4EC9B0" }
-run = { fg = "#C586C0" }
-desc = { fg = "#D4D4D4" }
-hovered = { fg = "#FFFFFF", bg = "#264F78", bold = true }
-footer = { fg = "#1e1e1e", bg = "#D4D4D4" }
+on = { fg = "#7dcfff" }
+run = { fg = "#bb9af7" }
+desc = { fg = "#c0caf5" }
+hovered = { fg = "#c0caf5", bg = "#3d59a1", bold = true }
+footer = { fg = "#1a1b26", bg = "#c0caf5" }
 # : }}}
 
 # : File-specific styles {{{
 [filetype]
 rules = [
     # Images - magenta
-    { mime = "image/*", fg = "#C586C0" },
+    { mime = "image/*", fg = "#bb9af7" },
 
     # Media - orange
-    { mime = "{audio,video}/*", fg = "#CE9178" },
+    { mime = "{audio,video}/*", fg = "#ff9e64" },
 
     # Archives - red
-    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#D16969" },
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#f7768e" },
 
     # Documents - blue
-    { mime = "application/{pdf,doc,rtf}", fg = "#569CD6" },
+    { mime = "application/{pdf,doc,rtf}", fg = "#7aa2f7" },
 
     # Special files
-    { name = "*", is = "orphan", fg = "#D16969", bg = "#5A1E1E" },
-    { name = "*", is = "exec", fg = "#608B4E", bold = true },
+    { name = "*", is = "orphan", fg = "#f7768e", bg = "#3f2d3d" },
+    { name = "*", is = "exec", fg = "#9ece6a", bold = true },
 
     # Dummy files
-    { name = "*", is = "dummy", fg = "#6A6A6A", bg = "#3E1E1E" },
-    { name = "*/", is = "dummy", fg = "#6A6A6A", bg = "#3E1E1E" },
+    { name = "*", is = "dummy", fg = "#565f89", bg = "#283457" },
+    { name = "*/", is = "dummy", fg = "#565f89", bg = "#283457" },
 
     # Directories - cyan
-    { name = "*/", fg = "#4EC9B0", bold = true },
+    { name = "*/", fg = "#7dcfff", bold = false },
 
     # Default files - light gray
-    { name = "*", fg = "#D4D4D4" },
+    { name = "*", fg = "#c0caf5" },
 ]
 # : }}}
 
 # : Icons {{{
 [icon]
-# Using the same comprehensive icon configuration
 globs = []
 dirs = [
     { name = ".config", text = "" },
@@ -227,70 +226,70 @@ dirs = [
 ]
 files = [
     # Configuration files
-    { name = ".gitignore", text = "", fg = "#F54D27" },
-    { name = "package.json", text = "", fg = "#E8274B" },
-    { name = "tsconfig.json", text = "", fg = "#519ABA" },
-    { name = "Dockerfile", text = "󰡨", fg = "#458EE6" },
-    { name = "docker-compose.yml", text = "󰡨", fg = "#458EE6" },
-    { name = "README.md", text = "󰂺", fg = "#EDEDED" },
-    { name = "LICENSE", text = "", fg = "#D0BF41" },
+    { name = ".gitignore", text = "", fg = "#f7768e" },
+    { name = "package.json", text = "", fg = "#f7768e" },
+    { name = "tsconfig.json", text = "", fg = "#7aa2f7" },
+    { name = "Dockerfile", text = "󰡨", fg = "#7aa2f7" },
+    { name = "docker-compose.yml", text = "󰡨", fg = "#7aa2f7" },
+    { name = "README.md", text = "󰂺", fg = "#c0caf5" },
+    { name = "LICENSE", text = "", fg = "#e0af68" },
 ]
 exts = [
-    # Programming languages - matching VSCode colors
-    { name = "js", text = "", fg = "#DCDCAA" },   # Yellow
-    { name = "ts", text = "", fg = "#569CD6" },   # Blue
-    { name = "jsx", text = "", fg = "#4EC9B0" },  # Cyan
-    { name = "tsx", text = "", fg = "#4FC3F7" },  # Light Blue
-    { name = "py", text = "", fg = "#DCDCAA" },   # Yellow
-    { name = "rs", text = "", fg = "#DEA584" },   # Rust orange
-    { name = "go", text = "", fg = "#4EC9B0" },   # Cyan
-    { name = "java", text = "", fg = "#CC3E44" }, # Red
-    { name = "c", text = "", fg = "#599EFF" },    # Blue
-    { name = "cpp", text = "", fg = "#569CD6" },  # Blue
-    { name = "h", text = "", fg = "#A074C4" },    # Purple
-    { name = "rb", text = "", fg = "#D16969" },   # Red
-    { name = "php", text = "", fg = "#A074C4" },  # Purple
+    # Programming languages - matching Tokyo Night colors
+    { name = "js", text = "", fg = "#e0af68" },   # Yellow
+    { name = "ts", text = "", fg = "#7aa2f7" },   # Blue
+    { name = "jsx", text = "", fg = "#7dcfff" },  # Cyan
+    { name = "tsx", text = "", fg = "#7dcfff" },  # Cyan
+    { name = "py", text = "", fg = "#e0af68" },   # Yellow
+    { name = "rs", text = "", fg = "#ff9e64" },   # Orange
+    { name = "go", text = "", fg = "#7dcfff" },   # Cyan
+    { name = "java", text = "", fg = "#f7768e" }, # Red
+    { name = "c", text = "", fg = "#7aa2f7" },    # Blue
+    { name = "cpp", text = "", fg = "#7aa2f7" },  # Blue
+    { name = "h", text = "", fg = "#bb9af7" },    # Purple
+    { name = "rb", text = "", fg = "#f7768e" },   # Red
+    { name = "php", text = "", fg = "#bb9af7" },  # Purple
 
-    # R language
-    { name = "r", text = "󰟔", fg = "#569CD6" },     # Blue
-    { name = "R", text = "󰟔", fg = "#569CD6" },     # Blue
-    { name = "rmd", text = "", fg = "#4EC9B0" },    # Cyan
-    { name = "rproj", text = "󰗆", fg = "#358A5B" }, # Green
+    # R language - Tokyo Night blue
+    { name = "r", text = "󰟔", fg = "#7aa2f7" },
+    { name = "R", text = "󰟔", fg = "#7aa2f7" },
+    { name = "rmd", text = "", fg = "#7dcfff" },
+    { name = "rproj", text = "󰗆", fg = "#9ece6a" },
 
     # Web files
-    { name = "html", text = "", fg = "#E34C26" },
-    { name = "css", text = "", fg = "#569CD6" },
-    { name = "scss", text = "", fg = "#C586C0" },
-    { name = "json", text = "", fg = "#DCDCAA" },
-    { name = "xml", text = "󰗀", fg = "#E37933" },
+    { name = "html", text = "", fg = "#ff9e64" },
+    { name = "css", text = "", fg = "#7aa2f7" },
+    { name = "scss", text = "", fg = "#bb9af7" },
+    { name = "json", text = "", fg = "#e0af68" },
+    { name = "xml", text = "󰗀", fg = "#ff9e64" },
 
     # Data files
-    { name = "csv", text = "", fg = "#608B4E" },
-    { name = "sql", text = "", fg = "#D4D4D4" },
+    { name = "csv", text = "", fg = "#9ece6a" },
+    { name = "sql", text = "", fg = "#c0caf5" },
 
     # Markdown and text
-    { name = "md", text = "", fg = "#D4D4D4" },
-    { name = "txt", text = "󰈙", fg = "#D4D4D4" },
+    { name = "md", text = "", fg = "#c0caf5" },
+    { name = "txt", text = "󰈙", fg = "#c0caf5" },
 
     # Archives
-    { name = "zip", text = "", fg = "#D16969" },
-    { name = "tar", text = "", fg = "#D16969" },
-    { name = "gz", text = "", fg = "#D16969" },
+    { name = "zip", text = "", fg = "#f7768e" },
+    { name = "tar", text = "", fg = "#f7768e" },
+    { name = "gz", text = "", fg = "#f7768e" },
 
     # Images
-    { name = "png", text = "", fg = "#C586C0" },
-    { name = "jpg", text = "", fg = "#C586C0" },
-    { name = "gif", text = "", fg = "#C586C0" },
-    { name = "svg", text = "󰜡", fg = "#FFB13B" },
+    { name = "png", text = "", fg = "#bb9af7" },
+    { name = "jpg", text = "", fg = "#bb9af7" },
+    { name = "gif", text = "", fg = "#bb9af7" },
+    { name = "svg", text = "󰜡", fg = "#e0af68" },
 
     # Documents
-    { name = "pdf", text = "", fg = "#D16969" },
-    { name = "doc", text = "󰈬", fg = "#569CD6" },
-    { name = "docx", text = "󰈬", fg = "#569CD6" },
-    { name = "xls", text = "󰈛", fg = "#608B4E" },
-    { name = "xlsx", text = "󰈛", fg = "#608B4E" },
-    { name = "ppt", text = "󰈧", fg = "#D16969" },
-    { name = "pptx", text = "󰈧", fg = "#D16969" },
+    { name = "pdf", text = "", fg = "#f7768e" },
+    { name = "doc", text = "󰈬", fg = "#7aa2f7" },
+    { name = "docx", text = "󰈬", fg = "#7aa2f7" },
+    { name = "xls", text = "󰈛", fg = "#9ece6a" },
+    { name = "xlsx", text = "󰈛", fg = "#9ece6a" },
+    { name = "ppt", text = "󰈧", fg = "#f7768e" },
+    { name = "pptx", text = "󰈧", fg = "#f7768e" },
 ]
 conds = [
     # Special files
@@ -308,4 +307,4 @@ conds = [
     { if = "exec", text = "" },
     { if = "!dir", text = "" },
 ]
-# : }}}
+

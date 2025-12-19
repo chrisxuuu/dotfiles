@@ -19,12 +19,14 @@ title_format = "Yazi: {cwd}"
 [preview]
 wrap = "no"
 tab_size = 2
-max_width = 600
-max_height = 900
+max_width = 1200
+max_height = 1800
 cache_dir = ""
 image_delay = 30
-image_filter = "triangle"
-image_quality = 75
+image_filter = "lanczos3"    # Best quality filter
+image_quality = 90
+ueberzug_scale = 2.0
+ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
 edit = [
@@ -108,9 +110,8 @@ rules = [
 micro_workers = 10
 macro_workers = 10
 bizarre_retry = 3
-image_alloc = 536870912    # 512MB
-image_bound = [5000, 5000]
-suppress_preload = false
+image_alloc = 1073741824
+image_bound = [10000, 10000]
 
 [plugin]
 fetchers = [

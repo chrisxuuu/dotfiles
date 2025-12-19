@@ -1,4 +1,4 @@
 [[mgr.prepend_keymap]]
 on = "<C-t>"
-run = 'shell "wezterm start --cwd=$PWD" --orphan'
-desc = "Open Terminal here"
+run = 'shell "alacritty --working-directory $PWD &" --orphan'
+desc = "Open Alacritty here"
