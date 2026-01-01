@@ -1,0 +1,313 @@
+# Yazi Theme - Tokyo Night
+# Save this as ~/.config/yazi/theme.toml
+
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Flavor {{{
+[flavor]
+dark = ""
+light = ""
+# : }}}
+
+# : Manager {{{
+[mgr]
+# Tokyo Night cyan for current working directory
+cwd = { fg = "#7dcfff", bold = false }
+
+# Hovered - Tokyo Night selection
+# hovered = { fg = "#c0caf5", bg = "#3d59a1" }
+# preview_hovered = { underline = false }
+
+# Find - Tokyo Night search highlight colors
+find_keyword = { fg = "#e0af68", bold = true, italic = true, underline = true }
+find_position = { fg = "#bb9af7", bg = "reset", bold = true, italic = true }
+
+# Symlink - purple like Tokyo Night
+symlink_target = { fg = "#bb9af7", italic = true }
+
+# Marker - Tokyo Night accent colors
+marker_copied = { fg = "#1a1b26", bg = "#9ece6a" }
+marker_cut = { fg = "#1a1b26", bg = "#f7768e" }
+marker_marked = { fg = "#1a1b26", bg = "#7dcfff" }
+marker_selected = { fg = "#1a1b26", bg = "#e0af68" }
+
+# Count badges
+count_copied = { fg = "#c0caf5", bg = "#9ece6a" }
+count_cut = { fg = "#c0caf5", bg = "#f7768e" }
+count_selected = { fg = "#1a1b26", bg = "#e0af68" }
+
+# Border - subtle like Tokyo Night
+border_symbol = "│"
+border_style = { fg = "#414868" }
+
+# Highlighting
+syntect_theme = ""
+# : }}}
+
+[indicator]
+current = { fg = "#c0caf5", bg = "#3d59a1" }
+preview = { underline = false }
+
+# : Tabs {{{
+[tabs]
+# Active tab - Tokyo Night blue
+active = { fg = "#c0caf5", bg = "#7aa2f7", bold = true }
+inactive = { fg = "#565f89", bg = "#24283b" }
+
+# Separators
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+# : }}}
+
+# : Mode {{{
+[mode]
+# Normal mode - Tokyo Night blue
+normal_main = { fg = "#c0caf5", bg = "#414868", bold = true }
+normal_alt = { fg = "#7aa2f7", bg = "#1a1b26" }
+
+# Select mode - Tokyo Night green
+select_main = { fg = "#1a1b26", bg = "#9ece6a", bold = true }
+select_alt = { fg = "#9ece6a", bg = "#1a1b26" }
+
+# Unset mode - Tokyo Night red
+unset_main = { fg = "#c0caf5", bg = "#f7768e", bold = true }
+unset_alt = { fg = "#f7768e", bg = "#1a1b26" }
+# : }}}
+
+# : Status bar {{{
+[status]
+overall = { fg = "#c0caf5", bg = "#414868" }
+sep_left = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions - Tokyo Night syntax colors
+perm_sep = { fg = "#565f89" }
+perm_type = { fg = "#9ece6a" }  # Green
+perm_read = { fg = "#e0af68" }  # Yellow
+perm_write = { fg = "#f7768e" } # Red
+perm_exec = { fg = "#7dcfff" }  # Cyan
+
+# Progress
+progress_label = { bold = true }
+progress_normal = { fg = "#7aa2f7", bg = "#1a1b26" }
+progress_error = { fg = "#f7768e", bg = "#1a1b26" }
+# : }}}
+
+# : Which {{{
+[which]
+cols = 3
+mask = { bg = "#1a1b26" }
+cand = { fg = "#7dcfff" }
+rest = { fg = "#565f89" }
+desc = { fg = "#bb9af7" }
+separator = "  "
+separator_style = { fg = "#565f89" }
+# : }}}
+
+# : Confirmation {{{
+[confirm]
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+content = { fg = "#c0caf5" }
+list = { fg = "#c0caf5" }
+btn_yes = { fg = "#1a1b26", bg = "#9ece6a", bold = true }
+btn_no = { fg = "#1a1b26", bg = "#f7768e", bold = true }
+btn_labels = [" [Y]es ", " (N)o "]
+# : }}}
+
+# : Spotter {{{
+[spot]
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+
+# Table
+tbl_col = { fg = "#7aa2f7" }
+tbl_cell = { fg = "#e0af68", reversed = true }
+# : }}}
+
+# : Notification {{{
+[notify]
+title_info = { fg = "#9ece6a" }
+title_warn = { fg = "#e0af68" }
+title_error = { fg = "#f7768e" }
+
+# Icons
+icon_info = ""
+icon_warn = ""
+icon_error = ""
+# : }}}
+
+# : Picker {{{
+[pick]
+border = { fg = "#7aa2f7" }
+active = { fg = "#bb9af7", bold = true }
+inactive = { fg = "#565f89" }
+# : }}}
+
+# : Input {{{
+[input]
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+value = { fg = "#c0caf5" }
+selected = { fg = "#c0caf5", bg = "#3d59a1" }
+# : }}}
+
+# : Completion {{{
+[cmp]
+border = { fg = "#7aa2f7" }
+active = { fg = "#c0caf5", bg = "#3d59a1" }
+inactive = { fg = "#c0caf5" }
+
+# Icons
+icon_file = ""
+icon_folder = ""
+icon_command = ""
+# : }}}
+
+# : Task manager {{{
+[tasks]
+border = { fg = "#7aa2f7" }
+title = { fg = "#7aa2f7" }
+hovered = { fg = "#bb9af7", underline = true }
+# : }}}
+
+# : Help menu {{{
+[help]
+on = { fg = "#7dcfff" }
+run = { fg = "#bb9af7" }
+desc = { fg = "#c0caf5" }
+hovered = { fg = "#c0caf5", bg = "#3d59a1", bold = true }
+footer = { fg = "#1a1b26", bg = "#c0caf5" }
+# : }}}
+
+# : File-specific styles {{{
+[filetype]
+rules = [
+    # Images - magenta
+    { mime = "image/*", fg = "#bb9af7" },
+
+    # Media - orange
+    { mime = "{audio,video}/*", fg = "#ff9e64" },
+
+    # Archives - red
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#f7768e" },
+
+    # Documents - blue
+    { mime = "application/{pdf,doc,rtf}", fg = "#7aa2f7" },
+
+    # Special files
+    { name = "*", is = "orphan", fg = "#f7768e", bg = "#3f2d3d" },
+    { name = "*", is = "exec", fg = "#9ece6a", bold = true },
+
+    # Dummy files
+    { name = "*", is = "dummy", fg = "#565f89", bg = "#283457" },
+    { name = "*/", is = "dummy", fg = "#565f89", bg = "#283457" },
+
+    # Directories - cyan
+    { name = "*/", fg = "#7dcfff", bold = false },
+
+    # Default files - light gray
+    { name = "*", fg = "#c0caf5" },
+]
+# : }}}
+
+# : Icons {{{
+[icon]
+globs = []
+dirs = [
+    { name = ".config", text = "" },
+    { name = ".git", text = "" },
+    { name = ".github", text = "" },
+    { name = "Desktop", text = "" },
+    { name = "Documents", text = "" },
+    { name = "Downloads", text = "" },
+    { name = "Music", text = "" },
+    { name = "Pictures", text = "" },
+    { name = "Videos", text = "" },
+    { name = "node_modules", text = "" },
+]
+files = [
+    # Configuration files
+    { name = ".gitignore", text = "", fg = "#f7768e" },
+    { name = "package.json", text = "", fg = "#f7768e" },
+    { name = "tsconfig.json", text = "", fg = "#7aa2f7" },
+    { name = "Dockerfile", text = "󰡨", fg = "#7aa2f7" },
+    { name = "docker-compose.yml", text = "󰡨", fg = "#7aa2f7" },
+    { name = "README.md", text = "󰂺", fg = "#c0caf5" },
+    { name = "LICENSE", text = "", fg = "#e0af68" },
+]
+exts = [
+    # Programming languages - matching Tokyo Night colors
+    { name = "js", text = "", fg = "#e0af68" },   # Yellow
+    { name = "ts", text = "", fg = "#7aa2f7" },   # Blue
+    { name = "jsx", text = "", fg = "#7dcfff" },  # Cyan
+    { name = "tsx", text = "", fg = "#7dcfff" },  # Cyan
+    { name = "py", text = "", fg = "#e0af68" },   # Yellow
+    { name = "rs", text = "", fg = "#ff9e64" },   # Orange
+    { name = "go", text = "", fg = "#7dcfff" },   # Cyan
+    { name = "java", text = "", fg = "#f7768e" }, # Red
+    { name = "c", text = "", fg = "#7aa2f7" },    # Blue
+    { name = "cpp", text = "", fg = "#7aa2f7" },  # Blue
+    { name = "h", text = "", fg = "#bb9af7" },    # Purple
+    { name = "rb", text = "", fg = "#f7768e" },   # Red
+    { name = "php", text = "", fg = "#bb9af7" },  # Purple
+
+    # R language - Tokyo Night blue
+    { name = "r", text = "󰟔", fg = "#7aa2f7" },
+    { name = "R", text = "󰟔", fg = "#7aa2f7" },
+    { name = "rmd", text = "", fg = "#7dcfff" },
+    { name = "rproj", text = "󰗆", fg = "#9ece6a" },
+
+    # Web files
+    { name = "html", text = "", fg = "#ff9e64" },
+    { name = "css", text = "", fg = "#7aa2f7" },
+    { name = "scss", text = "", fg = "#bb9af7" },
+    { name = "json", text = "", fg = "#e0af68" },
+    { name = "xml", text = "󰗀", fg = "#ff9e64" },
+
+    # Data files
+    { name = "csv", text = "", fg = "#9ece6a" },
+    { name = "sql", text = "", fg = "#c0caf5" },
+
+    # Markdown and text
+    { name = "md", text = "", fg = "#c0caf5" },
+    { name = "txt", text = "󰈙", fg = "#c0caf5" },
+
+    # Archives
+    { name = "zip", text = "", fg = "#f7768e" },
+    { name = "tar", text = "", fg = "#f7768e" },
+    { name = "gz", text = "", fg = "#f7768e" },
+
+    # Images
+    { name = "png", text = "", fg = "#bb9af7" },
+    { name = "jpg", text = "", fg = "#bb9af7" },
+    { name = "gif", text = "", fg = "#bb9af7" },
+    { name = "svg", text = "󰜡", fg = "#e0af68" },
+
+    # Documents
+    { name = "pdf", text = "", fg = "#f7768e" },
+    { name = "doc", text = "󰈬", fg = "#7aa2f7" },
+    { name = "docx", text = "󰈬", fg = "#7aa2f7" },
+    { name = "xls", text = "󰈛", fg = "#9ece6a" },
+    { name = "xlsx", text = "󰈛", fg = "#9ece6a" },
+    { name = "ppt", text = "󰈧", fg = "#f7768e" },
+    { name = "pptx", text = "󰈧", fg = "#f7768e" },
+]
+conds = [
+    # Special files
+    { if = "orphan", text = "" },
+    { if = "link", text = "" },
+    { if = "block", text = "" },
+    { if = "char", text = "" },
+    { if = "fifo", text = "" },
+    { if = "sock", text = "" },
+    { if = "sticky", text = "" },
+    { if = "dummy", text = "" },
+
+    # Fallback
+    { if = "dir", text = "" },
+    { if = "exec", text = "" },
+    { if = "!dir", text = "" },
+]
