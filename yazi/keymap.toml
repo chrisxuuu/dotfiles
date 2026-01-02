@@ -3,3 +3,8 @@
 on = "<C-t>"
 run = 'shell "ghostty --working-directory=$PWD &" --orphan'
 desc = "Open Ghostty here"
+
+[[mgr.prepend_keymap]]
+on = "<Enter>"
+run = '''shell --confirm --block 'if [ -d "$0" ]; then cd "$0" && exec nvim .; else ${EDITOR:-nvim} "$0"; fi' '''
+desc = "Smart open: folder in nvim, file with editor"
