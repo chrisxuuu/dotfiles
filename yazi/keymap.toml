@@ -6,5 +6,5 @@ desc = "Open Ghostty here"
 
 [[mgr.prepend_keymap]]
 on = "<Enter>"
-run = '''shell --confirm --block 'if [ -d "$0" ]; then cd "$0" && exec nvim .; else ${EDITOR:-nvim} "$0"; fi' '''
-desc = "Smart open: folder in nvim, file with editor"
+run = '''shell --confirm --block 'ext="${0##*.}"; if [ -d "$0" ]; then cd "$0" && exec nvim .; elif [ "$ext" = "jpg" ] || [ "$ext" = "pdf" ] || [ "$ext" = "pages" ] || [ "$ext" = "numbers" ] || [ "$ext" = "key" ] || [ "$ext" = "docx" ] || [ "$ext" = "xlsx" ] || [ "$ext" = "pptx" ]; then open "$0"; else ${EDITOR:-nvim} "$0"; fi' '''
+desc = "Smart open: folders/text in nvim, special files with default apps"

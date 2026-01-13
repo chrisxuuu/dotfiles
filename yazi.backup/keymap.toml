@@ -1,5 +1,0 @@
-# Yazi Keymap Configuration
-[[mgr.prepend_keymap]]
-on = "<C-t>"
-run = 'shell "ghostty --working-directory=$PWD &" --orphan'
-desc = "Open Ghostty here"

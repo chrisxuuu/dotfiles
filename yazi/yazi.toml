@@ -60,6 +60,24 @@ rules = [
     "open",
     "reveal",
   ] },
+  # PDF - use system default (Preview)
+  { mime = "application/pdf", use = [
+    "open",
+    "reveal",
+  ] },
+  # Apple iWork
+  { name = "*.pages", use = [
+    "open",
+    "reveal",
+  ] },
+  { name = "*.numbers", use = [
+    "open",
+    "reveal",
+  ] },
+  { name = "*.key", use = [
+    "open",
+    "reveal",
+  ] },
   # Text
   { mime = "text/*", use = [
     "edit",
