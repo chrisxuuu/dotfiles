@@ -31,7 +31,7 @@ EXCLUDE_APPS=(
 )
 
 # Convert running apps to array
-IFS=', ' read -ra apps_array <<< "$running_apps"
+IFS=', ' read -ra apps_array <<<"$running_apps"
 
 # Remove all existing background app items
 existing_items=$(sketchybar --query bar 2>/dev/null | grep -o 'background_app\.[0-9]*')
@@ -48,17 +48,17 @@ for app in "${apps_array[@]}"; do
             break
         fi
     done
-    
+
     [ "$skip" = true ] && continue
-    
+
     # Get icon for the app
     icon=$("$CONFIG_DIR/plugins/icon_map_fn.sh" "$app" 2>/dev/null)
-    
+
     # Skip invalid icons
     [ -z "$icon" ] || [ "$icon" = ":default:" ] || [ "$icon" = " " ] && continue
-    
+
     item_name="background_app.$position"
-    
+
     sketchybar --add item "$item_name" right \
         --set "$item_name" \
         icon="$icon" \
@@ -70,6 +70,6 @@ for app in "${apps_array[@]}"; do
         background.corner_radius=5 \
         background.height=20 \
         click_script="open -a '$app'"
-    
+
     position=$((position + 1))
 done
