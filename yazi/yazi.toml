@@ -60,6 +60,10 @@ rules = [
     "open",
     "reveal",
   ] },
+  { name = "*.png", use = [
+    "open",
+    "reveal",
+  ] },
   # PDF - use system default (Preview)
   { mime = "application/pdf", use = [
     "open",
@@ -87,7 +91,8 @@ rules = [
   { mime = "image/*", use = [
     "open",
     "reveal",
-  ] }, # Media
+  ] },
+  # Media
   { mime = "{audio,video}/*", use = [
     "play",
     "reveal",
