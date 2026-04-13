@@ -1,0 +1,22 @@
+{
+  "Quarto document header": {
+    "prefix": "qmd_header",
+    "body": [
+      "---",
+      "format:",
+      "  pdf:",
+      "    colorlinks: true",
+      "    geometry:",
+      "      - margin=1in",
+      "    fontsize: 11pt",
+      "execute:",
+      "  echo: false",
+      "  warning: false",
+      "  message: false",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Standard Quarto document YAML header"
+  }
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "bindings": {
+      "cmd-k cmd-f": "workspace::CloseWindow"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-f10": "repl::Restart",
+      "cmd-\\": "assistant::InlineAssist",
+      "cmd-shift-m": ["workspace::SendKeystrokes", "space |> space"],
+      "alt--": ["workspace::SendKeystrokes", "space < - space"],
+      "cmd-alt-i": ["workspace::SendKeystrokes", "\n# space %%\n"],
+      "cmd-shift-d": [
+        "task::Spawn",
+        { "task_name": "Document local R package", "reveal_target": "center" }
+      ],
+      "cmd-alt-enter": [
+        "workspace::SendKeystrokes",
+        "ctrl-c ctrl-` ctrl-shift-v enter ctrl-`"
+      ],
+      "ctrl-enter": "repl::Run"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-t": [
+        "task::Spawn",
+        { "task_name": "Run all R tests", "reveal_target": "center" }
+      ],
+      "cmd-shift-r": [
+        "task::Spawn",
+        { "task_name": "Run current R file test", "reveal_target": "center" }
+      ],
+      "cmd-shift-b": [
+        "task::Spawn",
+        { "task_name": "Install local R package", "reveal_target": "center" }
+      ],
+      "cmd-2": [
+        "task::Spawn",
+        { "task_name": "R Terminal", "reveal_target": "dock" }
+      ],
+      "cmd-shift-s": [
+        "task::Spawn",
+        { "task_name": "Source current file", "reveal_target": "center" }
+      ],
+      "cmd-shift-e": [
+        "task::Spawn",
+        { "task_name": "Check local R package", "reveal_target": "center" }
+      ]
+    }
+  }
+]

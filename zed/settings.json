@@ -1,0 +1,95 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "provider": "none",
+  },
+  "ui_font_family": ".SystemUIFont",
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true,
+  },
+  "buffer_line_height": "comfortable",
+  "diagnostics_max_severity": "error",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
+  "icon_theme": "Material Icon Theme",
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never",
+  },
+  "file_types": {
+    "rmd": ["*.rmd"],
+  },
+  "format_on_save": "on",
+  "show_breadcrumbs": false,
+  "sticky_scroll": { "enabled": false },
+  "show_edit_predictions": true,
+  "wrap_guides": [80],
+  "ui_font_size": 16,
+  "buffer_font_family": "Fira Code",
+  "buffer_font_features": { "calt": true, "liga": true },
+  "buffer_font_size": 14.0,
+  "dock": { "position": "right" },
+  "git": { "git_gutter": "hide" },
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Kanagawa Wave - No Italics",
+  },
+  "lsp": {
+    "pylsp": {
+      "settings": {
+        "pylsp": {
+          "plugins": {
+            "jedi_completion": { "enabled": true },
+            "jedi_hover": { "enabled": true },
+            "jedi_references": { "enabled": true },
+            "jedi_signature_help": { "enabled": true },
+            "jedi_symbols": { "enabled": true },
+            "pyflakes": { "enabled": false },
+            "pylint": { "enabled": false },
+            "pycodestyle": { "enabled": false },
+            "mccabe": { "enabled": false },
+            "pydocstyle": { "enabled": false },
+            "flake8": { "enabled": false },
+          },
+        },
+      },
+    },
+  },
+  "languages": {
+    "R": {
+      "language_servers": ["r_language_server"],
+      "format_on_save": "on",
+    },
+    "Python": {
+      "format_on_save": "on",
+      "formatter": "language_server",
+      "language_servers": ["pylsp"],
+    },
+    "TOML": {
+      "formatter": "language_server",
+    },
+    "Shell Script": {
+      "format_on_save": "on",
+    },
+  },
+  "tab_size": 4,
+}
