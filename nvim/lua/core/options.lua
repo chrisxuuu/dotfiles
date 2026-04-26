@@ -1,3 +1,6 @@
+-- Ensure Homebrew binaries (node, npm, etc.) are on PATH for Mason
+vim.env.PATH = '/opt/homebrew/bin:' .. vim.env.PATH
+
 vim.wo.number = true -- Make line numbers default (default: false)
 vim.o.relativenumber = true -- Set relative numbered lines (default: false)
 vim.o.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim. (default: '')
