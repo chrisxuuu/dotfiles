@@ -1,7 +1,6 @@
 # Yazi Theme - Tokyo Night
 # Save this as ~/.config/yazi/theme.toml
 
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
@@ -198,17 +197,17 @@ rules = [
   { mime = "application/{pdf,doc,rtf}", fg = "#7aa2f7" },
 
   # Special files
-  { name = "*", is = "orphan", fg = "#f7768e", bg = "#3f2d3d" },
-  { name = "*", is = "exec", fg = "#9ece6a", bold = true },
+  { url = "*", is = "orphan", fg = "#f7768e", bg = "#3f2d3d" },
+  { url = "*", is = "exec", fg = "#9ece6a", bold = true },
 
   # Dummy files
-  { name = "*", is = "dummy", fg = "#565f89", bg = "#283457" },
-  { name = "*/", is = "dummy", fg = "#565f89", bg = "#283457" },
+  { url = "*", is = "dummy", fg = "#565f89", bg = "#283457" },
+  { url = "*/", is = "dummy", fg = "#565f89", bg = "#283457" },
 
   # Directories - cyan
-  { name = "*/", fg = "#7dcfff", bold = false },
+  { url = "*/", fg = "#7dcfff", bold = false },
 
   # Default files - light gray
-  { name = "*", fg = "#c0caf5" },
+  { url = "*", fg = "#c0caf5" },
 ]
 # : }}}
