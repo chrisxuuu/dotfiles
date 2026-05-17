@@ -72,6 +72,12 @@ window_manage = "alt - t"
 # Snap an off-screen / overflowing window back into view.
 window_snap = "alt - v"
 
+# Virtual workspaces (rows of windows stacked within a single macOS space).
+window_virtual_north     = ["alt + ctrl - uparrow",   "alt + ctrl - k"]
+window_virtual_south     = ["alt + ctrl - downarrow", "alt + ctrl - j"]
+window_virtualmove_north = ["alt + ctrl + shift - uparrow",   "alt + ctrl + shift - k"]
+window_virtualmove_south = ["alt + ctrl + shift - downarrow", "alt + ctrl + shift - j"]
+
 # Multi-display.
 window_nextdisplay     = "alt + shift - tab"
 window_nextdisplaysend = "alt + ctrl - tab"
@@ -87,7 +93,3 @@ quit = "ctrl + alt - q"
 title = ".*Quartz.*"
 floating = true
 
-[windows.zoom]
-title = ".*"
-bundle_id = "us.zoom.xos"
-floating = true

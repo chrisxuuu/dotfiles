@@ -21,6 +21,14 @@ s = json.load(sys.stdin)
 print(s.get("active", {}).get("virtual_workspace_number", ""))
 ')
 
+# Count virtual workspaces on the active native space.
+virtual_total=$(printf '%s' "$state" | /usr/bin/python3 -c '
+import json, sys
+s = json.load(sys.stdin)
+nws = s.get("active", {}).get("native_workspace_id")
+print(sum(1 for w in s.get("virtual_workspaces", []) if w.get("native_workspace_id") == nws))
+')
+
 # Collect app names for the active strip (matching active native + virtual workspace).
 apps=$(printf '%s' "$state" | /usr/bin/python3 -c '
 import json, sys
@@ -47,5 +55,5 @@ if [ -n "$apps" ]; then
 fi
 [ -z "$icon_strip" ] && icon_strip=" "
 
-sketchybar --set space_indicator label="Space $active_native"
+sketchybar --set space_indicator label="󰕮 ${active_virtual:-1}/${virtual_total:-1}"
 sketchybar --set space_strip label="$icon_strip"
