@@ -18,6 +18,7 @@ EXCLUDE_APPS=(
     "Spotlight"
     "loginwindow"
     "AeroSpace"
+    "paneru"
     "osascript"
     "Script Editor"
     "Automator"

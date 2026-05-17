@@ -68,7 +68,7 @@
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
-    "dark": "Kanagawa Wave - No Italics",
+    "dark": "Kanagawa",
   },
   "lsp": {
     "pylsp": {

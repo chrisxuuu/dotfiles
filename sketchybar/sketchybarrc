@@ -32,70 +32,55 @@ default=(
 )
 sketchybar --default "${default[@]}"
 
-##### Adding Aeropsace layouts #####
-sketchybar --add event aerospace_workspace_change
-sketchybar --add event aerospace_monitor_change
-for sid in $(aerospace list-workspaces --all); do
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        display="$(
-            v=$(aerospace list-windows --workspace "$sid" --format "%{monitor-appkit-nsscreen-screens-id}" | cut -c1)
-            echo "${v:-1}"
-        )" \
-        drawing=off \
-        background.color=$MUTED_BLUE_BG \
-        background.corner_radius=6 \
-        background.drawing=on \
-        background.border_color=$MUTED_BLUE_BORDER \
-        background.border_width=0 \
-        background.height=20 \
-        icon="$sid" \
-        icon.color=0xffffffff \
-        icon.padding_left=10 \
-        icon.shadow.distance=4 \
-        icon.shadow.color=0xA0000000 \
-        label.font="sketchybar-app-font:Regular:16.0" \
-        label.color=0xffffffff \
-        label.padding_right=20 \
-        label.padding_left=0 \
-        label.y_offset=-1 \
-        label.shadow.drawing=off \
-        label.shadow.color=0xA0000000 \
-        label.shadow.distance=4 \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
-done
+##### Paneru integration #####
+# Paneru exposes state via `paneru query` and an event stream via `paneru subscribe`.
+# A background listener (paneru_listener.sh) forwards every event as a single
+# `paneru_event` trigger; subscribed items re-query paneru when fired.
+sketchybar --add event paneru_event
 
-# Load Icons on startup - Show ALL workspaces
-for mid in $(aerospace list-monitors | cut -c1); do
-    # Show all workspaces for this monitor, including empty ones
-    for sid in $(aerospace list-workspaces --monitor $mid); do
-        apps=$(aerospace list-windows --workspace "$sid" | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+# Active macOS space indicator (e.g. "Space 1").
+sketchybar --add item space_indicator left \
+    --set space_indicator \
+    background.color=$MUTED_BLUE_BG \
+    background.corner_radius=6 \
+    background.drawing=on \
+    background.border_color=$MUTED_BLUE_BORDER \
+    background.border_width=0 \
+    background.height=20 \
+    icon.drawing=off \
+    label="Space 1" \
+    label.color=0xffffffff \
+    label.padding_left=8 \
+    label.padding_right=8 \
+    script="$PLUGIN_DIR/paneru_strip.sh" \
+    --subscribe space_indicator paneru_event
 
-        # Always set drawing=on to show all workspaces
-        sketchybar --set space.$sid drawing=on
-
-        icon_strip=" "
-        if [ "${apps}" != "" ]; then
-            while read -r app; do
-                icon_strip+=" $($CONFIG_DIR/plugins/icon_map_fn.sh "$app")"
-            done <<<"${apps}"
-        else
-            # Empty workspace - show just the workspace number/name
-            icon_strip=""
-        fi
-        sketchybar --set space.$sid label="$icon_strip"
-    done
-done
+# Icon strip for windows on the active paneru strip.
+sketchybar --add item space_strip left \
+    --set space_strip \
+    background.color=$MUTED_BLUE_BG \
+    background.corner_radius=6 \
+    background.drawing=on \
+    background.height=20 \
+    icon.drawing=off \
+    label.font="sketchybar-app-font:Regular:16.0" \
+    label.color=0xffffffff \
+    label.padding_left=6 \
+    label.padding_right=10 \
+    label.y_offset=-1 \
+    label=" " \
+    --subscribe space_strip paneru_event
 
 sketchybar --add item space_separator left \
     --set space_separator icon="❙" \
     icon.padding_left=4 \
     label.drawing=off \
-    background.drawing=off \
-    script="$PLUGIN_DIR/space_windows.sh" \
-    --subscribe space_separator aerospace_workspace_change front_app_switched space_windows_change aerospace_monitor_change
+    background.drawing=off
+
+# Start the long-running paneru -> sketchybar event bridge.
+pkill -f "$PLUGIN_DIR/paneru_listener.sh" 2>/dev/null
+nohup "$PLUGIN_DIR/paneru_listener.sh" >/dev/null 2>&1 &
+disown 2>/dev/null || true
 
 sketchybar --add item front_app left \
     --set front_app icon.drawing=on \
@@ -150,7 +135,7 @@ sketchybar --add item background_apps_updater right \
     background.drawing=off \
     width=0 \
     --subscribe background_apps_updater \
-    aerospace_workspace_change \
+    paneru_event \
     front_app_switched
 
 ##### Force all scripts to run the first time (never do this in a script) #####

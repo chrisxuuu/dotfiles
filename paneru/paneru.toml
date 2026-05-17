@@ -1,0 +1,93 @@
+# Paneru config — migrated from aerospace.
+# Paneru is a scrolling/strip WM (Niri-like). Windows live on an infinite
+# horizontal strip per macOS space; opening a new window does NOT resize others.
+# Use native macOS spaces (ctrl+1..N or Mission Control) for workspace-like switching.
+
+[options]
+focus_follows_mouse = true
+mouse_follows_focus = true
+animation_speed = 12
+auto_center = false
+preset_column_widths = [0.25, 0.33, 0.5, 0.66, 0.75]
+window_resize_cycle = true
+# Override the detected menubar height. Sketchybar (20px) overlays the
+# native 24px menubar, so reserve only the sketchybar height.
+menubar_height = 20
+
+[padding]
+top = 0
+bottom = 0
+left = 0
+right = 0
+
+[swipe]
+sensitivity = 0.35
+deceleration = 4.0
+continuous = true
+
+[swipe.scroll]
+modifier = "alt"
+
+[decorations.inactive.dim]
+opacity = 0.0
+opacity_night = 0.0
+
+# --- Keybindings ---
+# Aerospace used `alt` as the primary modifier; keeping the same to preserve muscle memory.
+[bindings]
+
+# Focus — arrow keys (matches your aerospace setup) + hjkl as a second binding.
+window_focus_west  = ["alt - leftarrow",  "alt - h"]
+window_focus_south = ["alt - downarrow",  "alt - j"]
+window_focus_north = ["alt - uparrow",    "alt - k"]
+window_focus_east  = ["alt - rightarrow", "alt - l"]
+
+# Jump to first/last window on the strip.
+window_focus_first = "alt - a"
+window_focus_last  = "alt - e"
+
+# Swap / move windows.
+window_swap_west  = ["alt + shift - leftarrow",  "alt + shift - h"]
+window_swap_south = ["alt + shift - downarrow",  "alt + shift - j"]
+window_swap_north = ["alt + shift - uparrow",    "alt + shift - k"]
+window_swap_east  = ["alt + shift - rightarrow", "alt + shift - l"]
+window_swap_first = "alt + shift - a"
+window_swap_last  = "alt + shift - e"
+
+# Resize — matches aerospace alt-shift-minus / alt-shift-equal.
+window_shrink     = "alt + shift - minus"
+window_grow       = "alt + shift - equal"
+window_resize     = "alt - r"
+window_fullwidth  = "alt - f"
+window_center     = "alt - c"
+
+# Stacks (columns of vertically-stacked windows in the strip).
+window_stack     = "alt - s"
+window_unstack   = "alt + shift - s"
+window_equalize  = "alt - 0"
+
+# Floating toggle (closest analogue to aerospace's `layout floating tiling`).
+window_manage = "alt - t"
+
+# Snap an off-screen / overflowing window back into view.
+window_snap = "alt - v"
+
+# Multi-display.
+window_nextdisplay     = "alt + shift - tab"
+window_nextdisplaysend = "alt + ctrl - tab"
+mouse_nextdisplay      = "alt - tab"
+
+# Quit (matches aerospace service-mode quit feel: ctrl+alt+q).
+quit = "ctrl + alt - q"
+
+# --- Window rules ---
+# Ported from aerospace's on-window-detected rules.
+
+[windows.python_quartz]
+title = ".*Quartz.*"
+floating = true
+
+[windows.zoom]
+title = ".*"
+bundle_id = "us.zoom.xos"
+floating = true
