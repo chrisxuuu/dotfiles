@@ -1,0 +1,24 @@
+[accounts.gmail]
+email = "chris.xu.mps1@gmail.com"
+default = true
+
+folder.aliases.inbox = "INBOX"
+folder.aliases.sent = "[Gmail]/Sent Mail"
+folder.aliases.drafts = "[Gmail]/Drafts"
+folder.aliases.trash = "[Gmail]/Trash"
+
+backend.type = "imap"
+backend.host = "imap.gmail.com"
+backend.port = 993
+backend.encryption.type = "tls"
+backend.login = "chris.xu.mps1@gmail.com"
+backend.auth.type = "password"
+backend.auth.cmd = "security find-generic-password -a chris.xu.mps1@gmail.com -s gmail-imap -w"
+
+message.send.backend.type = "smtp"
+message.send.backend.host = "smtp.gmail.com"
+message.send.backend.port = 587
+message.send.backend.encryption.type = "start-tls"
+message.send.backend.login = "chris.xu.mps1@gmail.com"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.cmd = "security find-generic-password -a chris.xu.mps1@gmail.com -s gmail-imap -w"

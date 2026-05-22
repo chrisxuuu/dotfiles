@@ -55,8 +55,8 @@ window_swap_first = "alt + shift - a"
 window_swap_last  = "alt + shift - e"
 
 # Resize — matches aerospace alt-shift-minus / alt-shift-equal.
-window_shrink     = "alt + shift - minus"
-window_grow       = "alt + shift - equal"
+window_shrink     = ["alt + shift - minus", "alt - minus"]
+window_grow       = ["alt + shift - equal", "alt - equal"]
 window_resize     = "alt - r"
 window_fullwidth  = "alt - f"
 window_center     = "alt - c"
