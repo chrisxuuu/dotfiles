@@ -22,11 +22,14 @@ right = 0
 
 [swipe]
 sensitivity = 0.35
-deceleration = 4.0
+deceleration = 10.0
 continuous = true
 
 [swipe.scroll]
 modifier = "alt"
+
+[swipe.gesture]
+fingers_count = 3
 
 [decorations.inactive.dim]
 opacity = 0.0
@@ -85,11 +88,4 @@ mouse_nextdisplay      = "alt - tab"
 
 # Quit (matches aerospace service-mode quit feel: ctrl+alt+q).
 quit = "ctrl + alt - q"
-
-# --- Window rules ---
-# Ported from aerospace's on-window-detected rules.
-
-[windows.python_quartz]
-title = ".*Quartz.*"
-floating = true
 
