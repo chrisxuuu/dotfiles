@@ -2,9 +2,30 @@
 # Background apps display for SketchyBar
 
 CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+PANERU="${PANERU:-/opt/homebrew/bin/paneru}"
 
 # Get running GUI applications
 running_apps=$(osascript -e 'tell application "System Events" to get name of every application process whose background only is false' 2>/dev/null)
+
+# Apps already shown in the active paneru strip (space_strip). Skip these so
+# we don't draw duplicate icons in the background apps section.
+strip_apps=$("$PANERU" query state --json 2>/dev/null | /usr/bin/python3 -c '
+import json, sys
+try:
+    s = json.load(sys.stdin)
+except Exception:
+    sys.exit(0)
+active = s.get("active", {})
+nws = active.get("native_workspace_id")
+vws = active.get("virtual_workspace_number")
+for w in s.get("virtual_workspaces", []):
+    if w.get("native_workspace_id") == nws and w.get("number") == vws:
+        for win in w.get("windows", []):
+            name = win.get("app_name", "")
+            if name:
+                print(name)
+        break
+')
 
 # Apps to exclude (system apps and utilities only)
 EXCLUDE_APPS=(
@@ -49,6 +70,19 @@ for app in "${apps_array[@]}"; do
             break
         fi
     done
+
+    [ "$skip" = true ] && continue
+
+    # Skip if the app is already shown in the active paneru strip.
+    # Compare case-insensitively since System Events and paneru can report
+    # the same app with different casing (e.g. "zed" vs "Zed").
+    if [ -n "$strip_apps" ]; then
+        app_lc=$(printf '%s' "$app" | tr '[:upper:]' '[:lower:]')
+        while IFS= read -r strip_app; do
+            strip_lc=$(printf '%s' "$strip_app" | tr '[:upper:]' '[:lower:]')
+            [ "$app_lc" = "$strip_lc" ] && skip=true && break
+        done <<<"$strip_apps"
+    fi
 
     [ "$skip" = true ] && continue
 
